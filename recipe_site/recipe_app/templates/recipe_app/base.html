@@ -14,7 +14,9 @@
 </main>
 
 <footer>
+    {% if time_running %}
     <p>Время генерации страницы: {{ time_running }} сек.</p>
+    {% endif %}
 </footer>
 </body>
 </html>

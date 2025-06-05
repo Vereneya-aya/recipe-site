@@ -1,0 +1,21 @@
+{% extends "recipe_app/base.html" %}
+
+{% block content %}
+  <h2>Список рецептов:</h2>
+  <ul>
+    {% for recipe in recipes %}
+      <li>
+        <h3>{{ recipe.name }}</h3>
+        <p><strong>Описание:</strong> {{ recipe.description }}</p>
+        <p><strong>Время готовки:</strong> {{ recipe.cooking_time }} минут</p>
+        <p><strong>Создан:</strong> {{ recipe.created_at|date:"d.m.Y H:i" }}</p>
+        <p><strong>Архивирован:</strong> {{ recipe.archived|yesno:"Да,Нет" }}</p>
+        <hr>
+      </li>
+    {% empty %}
+      <li>Пока рецептов нет.</li>
+    {% endfor %}
+  </ul>
+
+  <p>Количество рецептов: {{ recipes|length }}</p>
+{% endblock %}
