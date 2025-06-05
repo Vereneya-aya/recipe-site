@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Рецепты{% endblock %}</title>
+</head>
+<body>
+<header>
+    <h1>Мой сайт рецептов</h1>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>Время генерации страницы: {{ time_running }} сек.</p>
+</footer>
+</body>
+</html>

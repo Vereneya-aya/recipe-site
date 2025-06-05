@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Список групп{% endblock %}
+
+{% block content %}
+  <h2>Группы пользователей</h2>
+
+  {% if groups %}
+    <ul>
+      {% for group in groups %}
+        <li>
+          <strong>{{ group.name }}</strong>
+          {% if group.permissions.all %}
+            <ul>
+              {% for perm in group.permissions.all %}
+                <li>{{ perm.name }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>Нет разрешений</p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Группы не найдены.</p>
+  {% endif %}
+{% endblock %}
