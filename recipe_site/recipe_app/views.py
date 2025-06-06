@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group
 from .models import Recipe
 from .utils import with_timer  # Декоратор для измерения времени
+from .forms import RecipeForm
 
 # Главная страница с тестовыми рецептами (строками)
 @with_timer
@@ -28,3 +30,15 @@ def group_list(request):
 
 
 #liked_by = models.ManyToManyField(User, related_name='liked_recipes', blank=True)
+@login_required
+def create_recipe(request):
+    if request.method == 'POST':
+        form = RecipeForm(request.POST)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.author = request.user
+            recipe.save()
+            return redirect('recipe_detail', recipe_id=recipe.id)  # или куда тебе нужно
+    else:
+        form = RecipeForm()
+    return render(request, 'recipe_app/create_recipe.html', {'form': form})

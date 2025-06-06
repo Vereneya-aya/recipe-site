@@ -6,9 +6,11 @@ User = get_user_model()
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
+    ingredients = models.TextField(blank=True)  # Новый блок
+    instructions = models.TextField(blank=True)  # Новый блок
     cooking_time = models.IntegerField()  # в минутах
-    archived = models.BooleanField(default=False)  # "удалён" или нет
-    created_at = models.DateTimeField(auto_now_add=True)  # время создания
+    archived = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     likes = models.ManyToManyField(User, related_name='liked_recipes', blank=True)
