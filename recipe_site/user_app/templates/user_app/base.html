@@ -1,0 +1,32 @@
+<!-- templates/user_app/home.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Рецепты{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
+</head>
+<body>
+
+  <header>
+    <h1><a href="/">Сайт рецептов</a></h1>
+    <nav>
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Выход</a>
+      {% else %}
+        <a href="{% url 'login' %}">Вход</a>
+        <a href="{% url 'signup' %}">Регистрация</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>© 2025 Мой сайт рецептов</p>
+  </footer>
+
+</body>
+</html>

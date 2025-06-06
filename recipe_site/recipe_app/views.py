@@ -25,3 +25,6 @@ def recipes_list(request):
 def group_list(request):
     groups = Group.objects.prefetch_related('permissions').all()
     return render(request, 'recipe_app/groups.html', {'groups': groups})
+
+
+#liked_by = models.ManyToManyField(User, related_name='liked_recipes', blank=True)
