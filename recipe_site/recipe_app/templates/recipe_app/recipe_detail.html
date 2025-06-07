@@ -1,0 +1,24 @@
+{% extends 'recipe_app/base.html' %}
+
+{% block title %}{{ recipe.name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>{{ recipe.name }}</h2>
+  <p><strong>Описание:</strong> {{ recipe.description }}</p>
+  <p><strong>Ингредиенты:</strong> {{ recipe.ingredients }}</p>
+  <p><strong>Шаги приготовления:</strong> {{ recipe.instructions }}</p>
+  <p><strong>Время:</strong> {{ recipe.cooking_time }} минут</p>
+
+  {% if recipe.image %}
+    <img src="{{ recipe.image.url }}" class="img-fluid mt-3" alt="{{ recipe.name }}">
+  {% endif %}
+
+  <div class="mt-4 d-flex gap-2 flex-wrap">
+    <a href="{% url 'recipe_app:update_recipe' recipe.pk %}" class="btn btn-warning">Редактировать</a>
+    <a href="{% url 'recipe_app:confirm_archive' recipe.pk %}" class="btn btn-secondary">Архивировать</a>
+    <a href="{% url 'recipe_app:confirm_delete' recipe.pk %}" class="btn btn-danger">Удалить</a>
+    <a href="{% url 'recipe_app:recipes_list' %}" class="btn btn-outline-primary">Назад к списку</a>
+  </div>
+</div>
+{% endblock %}

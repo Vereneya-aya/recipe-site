@@ -1,11 +1,26 @@
 {% extends "recipe_app/base.html" %}
 
 {% block content %}
+  <nav class="mb-4 d-flex gap-3">
+    {% if user.is_authenticated %}
+      <span>👤 {{ user.username }}</span>
+      <a href="{% url 'user_app:profile' %}">Профиль</a>
+      <a href="{% url 'user_app:logout' %}">Выйти</a>
+    {% else %}
+      <a href="{% url 'user_app:signup' %}">Регистрация</a>
+      <a href="{% url 'user_app:login' %}">Войти</a>
+    {% endif %}
+  </nav>
+
   <h2>Список рецептов:</h2>
-  <ul>
+  <ul class="list-unstyled">
     {% for recipe in recipes %}
-      <li>
-        <h3>{{ recipe.name }}</h3>
+      <li class="mb-4 border-bottom pb-3">
+        <h3>
+          <a href="{% url 'recipe_app:recipe_detail' recipe.pk %}" class="text-decoration-none text-primary">
+            {{ recipe.name }}
+          </a>
+        </h3>
         <p><strong>Описание:</strong> {{ recipe.description }}</p>
         <p><strong>Время готовки:</strong> {{ recipe.cooking_time }} минут</p>
         <p><strong>Создан:</strong> {{ recipe.created_at|date:"d.m.Y H:i" }}</p>
