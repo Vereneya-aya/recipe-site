@@ -1,13 +1,15 @@
 {% extends "user_app/base.html" %}
-{% block title %}Профиль{% endblock %}
 
 {% block content %}
-  <h2>Ваши рецепты</h2>
+  <h2>Профиль пользователя</h2>
+  <p>👤 Имя: {{ user.username }}</p>
+  <p>📧 Почта: {{ user.email }}</p>
+  <p>📝 Ваши рецепты:</p>
   <ul>
-    {% for recipe in recipes %}
+    {% for recipe in user.recipes.all %}
       <li><a href="{% url 'recipe_app:recipe_detail' recipe.pk %}">{{ recipe.name }}</a></li>
     {% empty %}
-      <li>Вы ещё не добавили рецептов.</li>
+      <li>Вы пока не добавили ни одного рецепта.</li>
     {% endfor %}
   </ul>
 {% endblock %}

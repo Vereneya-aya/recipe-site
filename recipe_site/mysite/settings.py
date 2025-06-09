@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from django.urls import reverse_lazy
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure--cj601m$25m^-=_3wyb$qb810^jvd(ejvj@=ghm@r(#01es+g*'
@@ -88,7 +90,7 @@ STATIC_URL = 'static/'
 
 # Настройки входа / выхода
 LOGIN_URL = '/users/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = reverse_lazy("user_app:profile")
 LOGOUT_REDIRECT_URL = '/users/login/'
 
 # Ключ по умолчанию

@@ -1,0 +1,77 @@
+[
+  {
+    "model": "recipe_app.recipe",
+    "pk": 1,
+    "fields": {
+      "name": "Борщ",
+      "description": "Традиционный украинский суп с капустой, свеклой и мясом.",
+      "ingredients": "Свекла, капуста, картофель, мясо, морковь, лук",
+      "instructions": "Нарезать овощи, обжарить, варить 40 минут.",
+      "cooking_time": 60,
+      "archived": false,
+      "created_at": "2024-06-01T10:00:00Z",
+      "author": 1,
+      "likes": []
+    }
+  },
+  {
+    "model": "recipe_app.recipe",
+    "pk": 2,
+    "fields": {
+      "name": "Паста карбонара",
+      "description": "Итальянская паста с беконом, яйцами и сыром.",
+      "ingredients": "Спагетти, яйца, бекон, сыр Пармезан, перец",
+      "instructions": "Сварить пасту, обжарить бекон, смешать с соусом.",
+      "cooking_time": 20,
+      "archived": false,
+      "created_at": "2024-06-02T12:30:00Z",
+      "author": 1,
+      "likes": []
+    }
+  },
+  {
+    "model": "recipe_app.recipe",
+    "pk": 3,
+    "fields": {
+      "name": "Блины",
+      "description": "Тонкие блинчики на молоке.",
+      "ingredients": "Мука, молоко, яйца, сахар, соль, масло",
+      "instructions": "Смешать ингредиенты, жарить на сковороде.",
+      "cooking_time": 15,
+      "archived": false,
+      "created_at": "2024-06-03T09:00:00Z",
+      "author": 1,
+      "likes": []
+    }
+  },
+  {
+    "model": "recipe_app.recipe",
+    "pk": 4,
+    "fields": {
+      "name": "Овощное рагу",
+      "description": "Полезное рагу из сезонных овощей.",
+      "ingredients": "Кабачки, баклажаны, помидоры, перец, лук, чеснок",
+      "instructions": "Нарезать и тушить овощи до мягкости.",
+      "cooking_time": 35,
+      "archived": false,
+      "created_at": "2024-06-04T14:20:00Z",
+      "author": 1,
+      "likes": []
+    }
+  },
+  {
+    "model": "recipe_app.recipe",
+    "pk": 5,
+    "fields": {
+      "name": "Сырники",
+      "description": "Творожные оладьи с сахаром и изюмом.",
+      "ingredients": "Творог, яйца, сахар, мука, изюм",
+      "instructions": "Смешать ингредиенты, обжарить на сковороде.",
+      "cooking_time": 25,
+      "archived": false,
+      "created_at": "2024-06-05T11:45:00Z",
+      "author": 1,
+      "likes": []
+    }
+  }
+]

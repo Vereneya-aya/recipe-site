@@ -12,7 +12,7 @@ class Recipe(models.Model):
     archived = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipes")
     likes = models.ManyToManyField(User, related_name='liked_recipes', blank=True)
 
     def __str__(self):
