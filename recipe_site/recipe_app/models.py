@@ -9,6 +9,7 @@ class Recipe(models.Model):
     ingredients = models.TextField(blank=True)  # Новый блок
     instructions = models.TextField(blank=True)  # Новый блок
     cooking_time = models.IntegerField()  # в минутах
+    image = models.ImageField(upload_to='recipes/', blank=True, null=True)
     archived = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 

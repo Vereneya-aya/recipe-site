@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from recipe_app.models import Recipe  # Убедись, что путь к модели корректный
+from recipe_app.models import Recipe
 
 class Command(BaseCommand):
     help = 'Создает несколько рецептов, если они ещё не существуют'

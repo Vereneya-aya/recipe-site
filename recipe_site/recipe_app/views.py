@@ -74,3 +74,4 @@ class RecipeArchiveView(LoginRequiredMixin, View):
 def group_list(request):
     groups = Group.objects.prefetch_related('permissions').all()
     return render(request, 'recipe_app/groups.html', {'groups': groups})
+
