@@ -18,7 +18,7 @@ class SignupView(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('recipes_list')
+            return redirect('recipe_app:recipes_list')
         return render(request, 'user_app/signup.html', {'form': form})
 
 class ProfileView(LoginRequiredMixin, View):

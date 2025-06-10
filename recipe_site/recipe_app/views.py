@@ -1,3 +1,4 @@
+import logging
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import Group
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -9,6 +10,8 @@ from django.urls import reverse_lazy
 from .models import Recipe
 from .forms import RecipeForm
 
+logger = logging.getLogger(__name__)
+
 
 class RecipesListView(ListView):
     model = Recipe
@@ -16,6 +19,7 @@ class RecipesListView(ListView):
     context_object_name = 'recipes'
 
     def get_queryset(self):
+        logger.info(f"[{self.request.user}] просматривает список рецептов")
         return Recipe.objects.filter(archived=False)
 
 
@@ -23,6 +27,11 @@ class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'recipe_app/recipe_detail.html'
     context_object_name = 'recipe'
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset)
+        logger.info(f"[{self.request.user}] просматривает рецепт: {obj.name} (ID={obj.id})")
+        return obj
 
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
@@ -32,6 +41,7 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        logger.info(f"[{self.request.user}] создаёт рецепт: {form.instance.name}")
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -46,6 +56,10 @@ class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     def get_queryset(self):
         return Recipe.objects.filter(author=self.request.user)
 
+    def form_valid(self, form):
+        logger.info(f"[{self.request.user}] обновляет рецепт: {form.instance.name} (ID={form.instance.id})")
+        return super().form_valid(form)
+
     def get_success_url(self):
         return reverse_lazy('recipe_app:recipe_detail', kwargs={'pk': self.object.pk})
 
@@ -58,20 +72,27 @@ class RecipeDeleteView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         return Recipe.objects.filter(author=self.request.user)
 
+    def delete(self, request, *args, **kwargs):
+        obj = self.get_object()
+        logger.info(f"[{request.user}] удаляет рецепт: {obj.name} (ID={obj.id})")
+        return super().delete(request, *args, **kwargs)
+
 
 class RecipeArchiveView(LoginRequiredMixin, View):
     def get(self, request, pk):
         recipe = get_object_or_404(Recipe, pk=pk, author=request.user)
+        logger.info(f"[{request.user}] открыл страницу архивации рецепта: {recipe.name}")
         return render(request, 'recipe_app/confirm_archive.html', {'recipe': recipe})
 
     def post(self, request, pk):
         recipe = get_object_or_404(Recipe, pk=pk, author=request.user)
         recipe.archived = True
         recipe.save()
+        logger.info(f"[{request.user}] архивировал рецепт: {recipe.name} (ID={recipe.id})")
         return redirect('recipe_app:recipes_list')
 
 
 def group_list(request):
+    logger.info(f"[{request.user}] просматривает список групп")
     groups = Group.objects.prefetch_related('permissions').all()
     return render(request, 'recipe_app/groups.html', {'groups': groups})
-

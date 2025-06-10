@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     'user_app',
     'rest_framework',
     'django_filters',
+    'drf_yasg',
+    'debug_toolbar',
 ]
 
 # Middleware
@@ -34,6 +36,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -113,3 +117,48 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend'
     ],
 }
+
+import os
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,  # не отключаем встроенные логгеры
+    'formatters': {
+        'verbose': {
+            'format': '[{levelname}] {asctime} {name} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '[{levelname}] {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'project.log'),
+            'formatter': 'verbose',
+        },
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'recipe_app': {
+            'handlers': ['file', 'console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+}
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]

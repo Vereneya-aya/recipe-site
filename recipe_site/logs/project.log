@@ -1,0 +1,466 @@
+[INFO] 2025-06-10 12:04:06,687 django.utils.autoreload Watching for file changes with StatReloader
+[INFO] 2025-06-10 12:04:11,029 recipe_app.views [AnonymousUser] просматривает список рецептов
+[INFO] 2025-06-10 12:04:11,139 django.server "GET / HTTP/1.1" 200 18430
+[INFO] 2025-06-10 12:04:11,650 django.server "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14803
+[INFO] 2025-06-10 12:04:11,653 django.server "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 29444
+[INFO] 2025-06-10 12:04:11,689 django.server "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4692
+[INFO] 2025-06-10 12:04:11,690 django.server "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+[WARNING] 2025-06-10 12:04:11,982 django.request Not Found: /favicon.ico
+[WARNING] 2025-06-10 12:04:11,982 django.server "GET /favicon.ico HTTP/1.1" 404 19743
+[ERROR] 2025-06-10 12:04:28,176 django.request Internal Server Error: /users/signup/
+Traceback (most recent call last):
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/recipe_site/user_app/views.py", line 14, in get
+    return render(request, 'user_app/signup.html', {'form': form})
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/test/utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/test/utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+[ERROR] 2025-06-10 12:04:28,225 django.server "GET /users/signup/ HTTP/1.1" 500 171538
+[INFO] 2025-06-10 12:14:04,291 django.utils.autoreload Watching for file changes with StatReloader
+[INFO] 2025-06-10 12:14:12,363 recipe_app.views [AnonymousUser] просматривает список рецептов
+[INFO] 2025-06-10 12:14:12,438 django.server "GET / HTTP/1.1" 200 18429
+[INFO] 2025-06-10 12:14:14,141 django.server "GET /users/signup/ HTTP/1.1" 200 17779
+[INFO] 2025-06-10 12:14:59,414 django.server "POST /users/signup/ HTTP/1.1" 200 18008
+[ERROR] 2025-06-10 12:15:25,940 django.request Internal Server Error: /users/signup/
+Traceback (most recent call last):
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/recipe_site/user_app/views.py", line 21, in post
+    return redirect('recipes_list')
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'recipes_list' not found. 'recipes_list' is not a valid view function or pattern name.
+[ERROR] 2025-06-10 12:15:25,967 django.server "POST /users/signup/ HTTP/1.1" 500 110306
+[INFO] 2025-06-10 12:16:26,466 django.server "GET /admin/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:16:26,512 django.server "GET /admin/login/?next=/admin/ HTTP/1.1" 200 18872
+[INFO] 2025-06-10 12:16:26,564 django.server "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:26,565 django.server "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:26,568 django.server "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:26,569 django.server "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:26,569 django.server "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:26,570 django.server "GET /static/admin/css/login.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:26,571 django.server "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:26,571 django.server "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:26,575 django.server "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:26,575 django.server "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:26,579 django.server "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:32,416 django.server "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:16:32,455 django.server "GET /admin/ HTTP/1.1" 200 22741
+[INFO] 2025-06-10 12:16:32,477 django.server "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:32,477 django.server "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:32,478 django.server "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,369 django.server "GET /admin/auth/user/ HTTP/1.1" 200 28899
+[INFO] 2025-06-10 12:16:42,394 django.server "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,396 django.server "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,398 django.server "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,398 django.server "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,398 django.server "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,399 django.server "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,405 django.server "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,405 django.server "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,405 django.server "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,406 django.server "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,406 django.server "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,413 django.server "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,417 django.server "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,424 django.server "GET /admin/jsi18n/ HTTP/1.1" 200 17546
+[INFO] 2025-06-10 12:16:42,445 django.server "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,446 django.server "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:16:42,446 django.server "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:18:44,764 django.utils.autoreload /Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/recipe_site/user_app/views.py changed, reloading.
+[INFO] 2025-06-10 12:18:45,401 django.utils.autoreload Watching for file changes with StatReloader
+[WARNING] 2025-06-10 12:18:48,043 django.security.csrf Forbidden (CSRF token from POST incorrect.): /users/signup/
+[WARNING] 2025-06-10 12:18:48,065 django.server "POST /users/signup/ HTTP/1.1" 403 16995
+[INFO] 2025-06-10 12:20:19,179 django.utils.autoreload Watching for file changes with StatReloader
+[INFO] 2025-06-10 12:20:23,367 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:20:23,401 django.server "GET / HTTP/1.1" 200 18462
+[WARNING] 2025-06-10 12:20:27,833 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:20:27,852 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:20:27,852 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[WARNING] 2025-06-10 12:20:32,017 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:20:32,032 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:20:32,033 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[INFO] 2025-06-10 12:20:37,774 django.server "GET /users/signup/ HTTP/1.1" 200 17684
+[INFO] 2025-06-10 12:21:30,358 django.server "POST /users/signup/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:21:30,366 recipe_app.views [VERA] просматривает список рецептов
+[INFO] 2025-06-10 12:21:30,376 django.server "GET / HTTP/1.1" 200 18454
+[INFO] 2025-06-10 12:21:45,382 django.server "GET /users/profile/ HTTP/1.1" 200 15948
+[WARNING] 2025-06-10 12:21:51,265 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:21:51,282 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:21:51,283 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[WARNING] 2025-06-10 12:22:07,892 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:22:07,913 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:22:07,913 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[WARNING] 2025-06-10 12:22:09,193 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:22:09,210 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:22:09,210 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[INFO] 2025-06-10 12:22:44,239 recipe_app.views [VERA] просматривает список рецептов
+[INFO] 2025-06-10 12:22:44,268 django.server "GET / HTTP/1.1" 200 18455
+[WARNING] 2025-06-10 12:22:45,711 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:22:45,727 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:22:45,727 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[WARNING] 2025-06-10 12:23:07,895 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:23:07,916 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:23:07,916 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[INFO] 2025-06-10 12:26:07,192 django.utils.autoreload /Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/recipe_site/mysite/settings.py changed, reloading.
+[INFO] 2025-06-10 12:26:07,785 django.utils.autoreload Watching for file changes with StatReloader
+[INFO] 2025-06-10 12:32:20,176 django.server "GET /users/profile/ HTTP/1.1" 200 15948
+[INFO] 2025-06-10 12:32:20,192 django.server "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:32:20,192 django.server "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:32:20,193 django.server "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:32:20,196 django.server "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+[WARNING] 2025-06-10 12:32:22,907 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:32:22,926 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:32:22,926 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[WARNING] 2025-06-10 12:32:26,009 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:32:26,024 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:32:26,025 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[WARNING] 2025-06-10 12:32:28,825 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:32:28,842 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:32:28,842 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[INFO] 2025-06-10 12:32:53,372 django.utils.autoreload Watching for file changes with StatReloader
+[INFO] 2025-06-10 12:32:55,736 recipe_app.views [VERA] просматривает список рецептов
+[INFO] 2025-06-10 12:32:55,762 django.server "GET / HTTP/1.1" 200 18883
+[INFO] 2025-06-10 12:32:57,423 django.server "GET /users/profile/ HTTP/1.1" 200 15948
+[INFO] 2025-06-10 12:32:59,490 django.server "POST /users/logout/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:32:59,515 django.server "GET /users/login/ HTTP/1.1" 200 16410
+[INFO] 2025-06-10 12:33:12,772 django.server "POST /users/login/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:33:12,790 django.server "GET /users/profile/ HTTP/1.1" 200 16165
+[INFO] 2025-06-10 12:33:16,101 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:33:16,127 django.server "GET /recipes/5/ HTTP/1.1" 200 16301
+[WARNING] 2025-06-10 12:33:28,282 django.request Method Not Allowed (GET): /users/logout/
+[WARNING] 2025-06-10 12:33:28,302 django.request Method Not Allowed: /users/logout/
+[WARNING] 2025-06-10 12:33:28,302 django.server "GET /users/logout/ HTTP/1.1" 405 0
+[INFO] 2025-06-10 12:35:01,997 django.utils.autoreload Watching for file changes with StatReloader
+[INFO] 2025-06-10 12:35:06,598 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:35:06,634 django.server "GET / HTTP/1.1" 200 18890
+[INFO] 2025-06-10 12:35:08,442 django.server "GET /users/profile/ HTTP/1.1" 200 16617
+[INFO] 2025-06-10 12:35:13,141 django.server "POST /users/logout/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:35:13,163 django.server "GET /users/login/ HTTP/1.1" 200 16458
+[INFO] 2025-06-10 12:35:16,828 django.server "GET /users/signup/ HTTP/1.1" 200 17827
+[INFO] 2025-06-10 12:35:18,943 django.server "GET /users/login/ HTTP/1.1" 200 16458
+[INFO] 2025-06-10 12:35:26,165 django.server "POST /users/login/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:35:26,183 django.server "GET /users/profile/ HTTP/1.1" 200 16616
+[INFO] 2025-06-10 12:35:34,127 django.server "POST /users/logout/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:35:34,143 django.server "GET /users/login/ HTTP/1.1" 200 16458
+[INFO] 2025-06-10 12:35:37,433 django.server "POST /users/login/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:35:37,452 django.server "GET /users/profile/ HTTP/1.1" 200 16393
+[INFO] 2025-06-10 12:35:50,349 django.server "GET /users/profile/ HTTP/1.1" 200 16393
+[INFO] 2025-06-10 12:35:51,346 recipe_app.views [VERA] просматривает список рецептов
+[INFO] 2025-06-10 12:35:51,369 django.server "GET / HTTP/1.1" 200 18883
+[INFO] 2025-06-10 12:36:01,086 django.server "GET /users/profile/ HTTP/1.1" 200 16393
+[INFO] 2025-06-10 12:39:15,350 django.server "GET /users/profile/ HTTP/1.1" 200 16393
+[INFO] 2025-06-10 12:39:18,784 django.server "POST /users/logout/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:39:18,795 django.server "GET /users/login/ HTTP/1.1" 200 16456
+[INFO] 2025-06-10 12:39:24,874 django.server "POST /users/login/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:39:24,887 django.server "GET /users/profile/ HTTP/1.1" 200 16615
+[INFO] 2025-06-10 12:39:27,087 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:39:27,111 django.server "GET /recipes/5/ HTTP/1.1" 200 16301
+[ERROR] 2025-06-10 12:39:38,274 django.request Internal Server Error: /users/profile/
+Traceback (most recent call last):
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/recipe_site/user_app/views.py", line 28, in get
+    return render(request, 'user_app/profile.html', {
+        'recipes': recipes
+    })
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/test/utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/test/utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/urls/base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/Users/veranikalis/Geekbrains/ПРОГРАММИСТ/PYTHON ADVANCED/RecipesPythonDjango/.venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'recipe_create' not found. 'recipe_create' is not a valid view function or pattern name.
+[ERROR] 2025-06-10 12:39:38,327 django.server "GET /users/profile/ HTTP/1.1" 500 181690
+[INFO] 2025-06-10 12:40:11,318 django.server "GET /users/login/ HTTP/1.1" 200 16767
+[INFO] 2025-06-10 12:40:17,606 django.server "POST /users/login/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:40:17,621 django.server "GET /users/profile/ HTTP/1.1" 200 16742
+[INFO] 2025-06-10 12:40:21,030 django.server "GET /create/ HTTP/1.1" 200 16786
+[INFO] 2025-06-10 12:43:50,280 recipe_app.views [veranikalis] создаёт рецепт: Картошка с фаршем и помидорами в духовке
+[INFO] 2025-06-10 12:43:50,299 django.server "POST /create/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:43:50,308 recipe_app.views [veranikalis] просматривает рецепт: Картошка с фаршем и помидорами в духовке (ID=6)
+[INFO] 2025-06-10 12:43:50,321 django.server "GET /recipes/6/ HTTP/1.1" 200 17990
+[INFO] 2025-06-10 12:43:50,349 django.server "GET /media/recipes/1.jpeg HTTP/1.1" 200 45345
+[INFO] 2025-06-10 12:43:59,864 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:43:59,892 django.server "GET / HTTP/1.1" 200 20219
+[INFO] 2025-06-10 12:44:33,598 recipe_app.views [veranikalis] просматривает рецепт: Картошка с фаршем и помидорами в духовке (ID=6)
+[INFO] 2025-06-10 12:44:33,625 django.server "GET /recipes/6/ HTTP/1.1" 200 17990
+[INFO] 2025-06-10 12:44:33,669 django.server "GET /media/recipes/1.jpeg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:44:54,807 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:44:54,834 django.server "GET / HTTP/1.1" 200 20219
+[INFO] 2025-06-10 12:45:24,652 recipe_app.views [veranikalis] просматривает рецепт: Картошка с фаршем и помидорами в духовке (ID=6)
+[INFO] 2025-06-10 12:45:24,668 django.server "GET /recipes/6/ HTTP/1.1" 200 17990
+[INFO] 2025-06-10 12:45:24,695 django.server "GET /media/recipes/1.jpeg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:45:27,121 django.server "GET /recipes/6/edit/ HTTP/1.1" 200 18784
+[INFO] 2025-06-10 12:45:31,958 recipe_app.views [veranikalis] обновляет рецепт: Картошка с фаршем и помидорами в духовке (ID=6)
+[INFO] 2025-06-10 12:45:31,979 django.server "POST /recipes/6/edit/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:45:31,986 recipe_app.views [veranikalis] просматривает рецепт: Картошка с фаршем и помидорами в духовке (ID=6)
+[INFO] 2025-06-10 12:45:31,999 django.server "GET /recipes/6/ HTTP/1.1" 200 17990
+[INFO] 2025-06-10 12:45:38,625 django.server "GET /recipes/6/edit/ HTTP/1.1" 200 18784
+[INFO] 2025-06-10 12:45:45,794 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:45:45,819 django.server "GET / HTTP/1.1" 200 20219
+[INFO] 2025-06-10 12:45:48,102 django.server "GET /users/profile/ HTTP/1.1" 200 16863
+[INFO] 2025-06-10 12:45:51,836 recipe_app.views [veranikalis] просматривает рецепт: Борщ (ID=1)
+[INFO] 2025-06-10 12:45:51,854 django.server "GET /recipes/1/ HTTP/1.1" 200 16348
+[INFO] 2025-06-10 12:45:54,280 django.server "GET /recipes/1/delete/ HTTP/1.1" 200 15906
+[INFO] 2025-06-10 12:45:55,829 django.server "POST /recipes/1/delete/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:45:55,836 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:45:55,852 django.server "GET / HTTP/1.1" 200 19668
+[INFO] 2025-06-10 12:45:58,616 recipe_app.views [veranikalis] просматривает рецепт: Блины (ID=3)
+[INFO] 2025-06-10 12:45:58,630 django.server "GET /recipes/3/ HTTP/1.1" 200 16283
+[INFO] 2025-06-10 12:45:59,699 recipe_app.views [veranikalis] открыл страницу архивации рецепта: Блины
+[INFO] 2025-06-10 12:45:59,716 django.server "GET /recipes/3/archive/ HTTP/1.1" 200 15925
+[INFO] 2025-06-10 12:46:00,974 recipe_app.views [veranikalis] архивировал рецепт: Блины (ID=3)
+[INFO] 2025-06-10 12:46:00,989 django.server "POST /recipes/3/archive/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:46:00,996 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:46:01,009 django.server "GET / HTTP/1.1" 200 19170
+[INFO] 2025-06-10 12:46:14,462 django.server "GET /admin/recipe_app/recipe/ HTTP/1.1" 200 31204
+[INFO] 2025-06-10 12:46:14,485 django.server "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:46:14,501 django.server "GET /admin/jsi18n/ HTTP/1.1" 200 17546
+[INFO] 2025-06-10 12:46:14,519 django.server "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:46:23,090 django.server "POST /admin/recipe_app/recipe/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:46:23,128 django.server "GET /admin/recipe_app/recipe/ HTTP/1.1" 200 31357
+[INFO] 2025-06-10 12:46:23,152 django.server "GET /admin/jsi18n/ HTTP/1.1" 200 17546
+[INFO] 2025-06-10 12:46:25,097 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:46:25,110 django.server "GET / HTTP/1.1" 200 19668
+[INFO] 2025-06-10 12:47:28,613 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:47:28,650 django.server "GET / HTTP/1.1" 200 20119
+[INFO] 2025-06-10 12:47:28,665 django.server "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:47:28,666 django.server "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:47:28,667 django.server "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:47:28,675 django.server "GET /media/recipes/1.jpeg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:47:28,702 django.server "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:47:43,542 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:47:43,564 django.server "GET /recipes/5/ HTTP/1.1" 200 16301
+[INFO] 2025-06-10 12:47:45,559 django.server "GET /recipes/5/edit/ HTTP/1.1" 200 17079
+[INFO] 2025-06-10 12:48:18,616 recipe_app.views [veranikalis] обновляет рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:48:18,641 django.server "POST /recipes/5/edit/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:48:18,649 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:48:18,658 django.server "GET /recipes/5/ HTTP/1.1" 200 16301
+[INFO] 2025-06-10 12:48:20,439 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:48:20,464 django.server "GET / HTTP/1.1" 200 20119
+[INFO] 2025-06-10 12:48:20,494 django.server "GET /media/recipes/1.jpeg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:48:22,855 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:48:22,882 django.server "GET / HTTP/1.1" 200 20119
+[INFO] 2025-06-10 12:48:24,637 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:48:24,661 django.server "GET / HTTP/1.1" 200 20119
+[INFO] 2025-06-10 12:48:27,790 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:48:27,809 django.server "GET /recipes/5/ HTTP/1.1" 200 16301
+[INFO] 2025-06-10 12:48:31,282 django.server "GET /recipes/5/edit/ HTTP/1.1" 200 17079
+[INFO] 2025-06-10 12:48:36,870 recipe_app.views [veranikalis] обновляет рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:48:36,890 django.server "POST /recipes/5/edit/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:48:36,899 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:48:36,916 django.server "GET /recipes/5/ HTTP/1.1" 200 16301
+[INFO] 2025-06-10 12:48:38,762 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:48:38,781 django.server "GET /recipes/5/ HTTP/1.1" 200 16301
+[INFO] 2025-06-10 12:48:50,788 django.server "GET /recipes/5/edit/ HTTP/1.1" 200 17079
+[INFO] 2025-06-10 12:53:32,763 recipe_app.views [veranikalis] обновляет рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:53:32,793 django.server "POST /recipes/5/edit/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:53:32,801 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:53:32,816 django.server "GET /recipes/5/ HTTP/1.1" 200 16301
+[INFO] 2025-06-10 12:53:34,963 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:53:34,985 django.server "GET /recipes/5/ HTTP/1.1" 200 16301
+[INFO] 2025-06-10 12:53:43,775 django.utils.autoreload Watching for file changes with StatReloader
+[INFO] 2025-06-10 12:53:47,072 django.server "GET /recipes/5/edit/ HTTP/1.1" 200 17083
+[INFO] 2025-06-10 12:53:49,653 recipe_app.views [veranikalis] обновляет рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:53:49,668 django.server "POST /recipes/5/edit/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:53:49,675 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 12:53:49,687 django.server "GET /recipes/5/ HTTP/1.1" 200 16385
+[INFO] 2025-06-10 12:53:49,715 django.server "GET /media/recipes/2.jpg HTTP/1.1" 200 105711
+[INFO] 2025-06-10 12:53:58,381 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:53:58,414 django.server "GET / HTTP/1.1" 200 20259
+[INFO] 2025-06-10 12:53:58,448 django.server "GET /media/recipes/2.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:53:58,448 django.server "GET /media/recipes/1.jpeg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:54:28,557 recipe_app.views [veranikalis] просматривает рецепт: Овощное рагу (ID=4)
+[INFO] 2025-06-10 12:54:28,584 django.server "GET /recipes/4/ HTTP/1.1" 200 16332
+[INFO] 2025-06-10 12:54:29,660 django.server "GET /recipes/4/edit/ HTTP/1.1" 200 17105
+[INFO] 2025-06-10 12:54:34,245 recipe_app.views [veranikalis] обновляет рецепт: Овощное рагу (ID=4)
+[INFO] 2025-06-10 12:54:34,271 django.server "POST /recipes/4/edit/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:54:34,287 recipe_app.views [veranikalis] просматривает рецепт: Овощное рагу (ID=4)
+[INFO] 2025-06-10 12:54:34,300 django.server "GET /recipes/4/ HTTP/1.1" 200 16425
+[INFO] 2025-06-10 12:54:34,326 django.server "GET /media/recipes/3.jpg HTTP/1.1" 200 57318
+[INFO] 2025-06-10 12:54:36,996 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:54:37,020 django.server "GET / HTTP/1.1" 200 20408
+[INFO] 2025-06-10 12:54:37,058 django.server "GET /media/recipes/3.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:54:37,062 django.server "GET /media/recipes/2.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:54:44,165 recipe_app.views [veranikalis] просматривает рецепт: Блины (ID=3)
+[INFO] 2025-06-10 12:54:44,189 django.server "GET /recipes/3/ HTTP/1.1" 200 16283
+[INFO] 2025-06-10 12:54:57,717 django.server "GET /recipes/3/edit/ HTTP/1.1" 200 17069
+[INFO] 2025-06-10 12:55:03,176 recipe_app.views [veranikalis] обновляет рецепт: Блины (ID=3)
+[INFO] 2025-06-10 12:55:03,201 django.server "POST /recipes/3/edit/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:55:03,210 recipe_app.views [veranikalis] просматривает рецепт: Блины (ID=3)
+[INFO] 2025-06-10 12:55:03,225 django.server "GET /recipes/3/ HTTP/1.1" 200 16363
+[INFO] 2025-06-10 12:55:03,256 django.server "GET /media/recipes/4.jpg HTTP/1.1" 200 572094
+[INFO] 2025-06-10 12:55:19,514 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:55:19,534 django.server "GET / HTTP/1.1" 200 20544
+[INFO] 2025-06-10 12:55:19,565 django.server "GET /media/recipes/3.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:55:19,572 django.server "GET /media/recipes/2.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:55:19,572 django.server "GET /media/recipes/1.jpeg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:55:19,576 django.server "GET /media/recipes/4.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:55:27,133 recipe_app.views [veranikalis] просматривает рецепт: Паста карбонара (ID=2)
+[INFO] 2025-06-10 12:55:27,152 django.server "GET /recipes/2/ HTTP/1.1" 200 16373
+[INFO] 2025-06-10 12:55:46,748 django.server "GET /recipes/2/edit/ HTTP/1.1" 200 17140
+[INFO] 2025-06-10 12:55:51,533 recipe_app.views [veranikalis] обновляет рецепт: Паста карбонара (ID=2)
+[INFO] 2025-06-10 12:55:51,549 django.server "POST /recipes/2/edit/ HTTP/1.1" 302 0
+[INFO] 2025-06-10 12:55:51,555 recipe_app.views [veranikalis] просматривает рецепт: Паста карбонара (ID=2)
+[INFO] 2025-06-10 12:55:51,563 django.server "GET /recipes/2/ HTTP/1.1" 200 16472
+[INFO] 2025-06-10 12:55:51,585 django.server "GET /media/recipes/5.jpeg HTTP/1.1" 200 5737
+[INFO] 2025-06-10 12:55:53,530 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 12:55:53,558 django.server "GET / HTTP/1.1" 200 20700
+[INFO] 2025-06-10 12:55:53,602 django.server "GET /media/recipes/2.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:55:53,604 django.server "GET /media/recipes/5.jpeg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:55:53,606 django.server "GET /media/recipes/3.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 12:55:53,611 django.server "GET /media/recipes/4.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:03:27,999 django.server "GET /users/profile/ HTTP/1.1" 200 16810
+[INFO] 2025-06-10 13:03:31,284 recipe_app.views [veranikalis] просматривает рецепт: Овощное рагу (ID=4)
+[INFO] 2025-06-10 13:03:31,304 django.server "GET /recipes/4/ HTTP/1.1" 200 16425
+[INFO] 2025-06-10 13:03:31,333 django.server "GET /media/recipes/3.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:04:09,307 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 13:04:09,333 django.server "GET / HTTP/1.1" 200 20460
+[INFO] 2025-06-10 13:04:09,382 django.server "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:04:09,391 django.server "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:04:09,393 django.server "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:04:09,407 django.server "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:04:09,427 django.server "GET /media/recipes/1.jpeg HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:04:09,434 django.server "GET /media/recipes/2.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:04:09,441 django.server "GET /media/recipes/4.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:04:09,448 django.server "GET /media/recipes/5.jpeg HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:04:13,252 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 13:04:13,268 django.server "GET / HTTP/1.1" 200 20460
+[INFO] 2025-06-10 13:04:57,654 django.utils.autoreload Watching for file changes with StatReloader
+[INFO] 2025-06-10 13:05:22,143 recipe_app.views [veranikalis] просматривает список рецептов
+[INFO] 2025-06-10 13:05:22,185 django.server "GET / HTTP/1.1" 200 20460
+[INFO] 2025-06-10 13:05:22,288 django.server "GET /media/recipes/2.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:05:22,296 django.server "GET /media/recipes/4.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:05:22,296 django.server "GET /media/recipes/5.jpeg HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:05:22,296 django.server "GET /media/recipes/3.jpg HTTP/1.1" 304 0
+[INFO] 2025-06-10 13:05:25,635 recipe_app.views [veranikalis] просматривает рецепт: Картошка с фаршем и помидорами в духовке (ID=6)
+[INFO] 2025-06-10 13:05:25,657 django.server "GET /recipes/6/ HTTP/1.1" 200 18083
+[INFO] 2025-06-10 13:05:27,199 recipe_app.views [veranikalis] просматривает рецепт: Картошка с фаршем и помидорами в духовке (ID=6)
+[INFO] 2025-06-10 13:05:27,214 django.server "GET /recipes/6/ HTTP/1.1" 200 18083
+[INFO] 2025-06-10 13:05:31,518 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 13:05:31,534 django.server "GET /recipes/5/ HTTP/1.1" 200 16478
+[INFO] 2025-06-10 13:05:33,464 recipe_app.views [veranikalis] просматривает рецепт: Сырники (ID=5)
+[INFO] 2025-06-10 13:05:33,478 django.server "GET /recipes/5/ HTTP/1.1" 200 16478
+[INFO] 2025-06-10 13:05:36,049 recipe_app.views [veranikalis] просматривает рецепт: Овощное рагу (ID=4)
+[INFO] 2025-06-10 13:05:36,064 django.server "GET /recipes/4/ HTTP/1.1" 200 16518
+[INFO] 2025-06-10 13:07:32,218 recipe_app.views [veranikalis] просматривает рецепт: Паста карбонара (ID=2)
+[INFO] 2025-06-10 13:07:32,238 django.server "GET /recipes/2/ HTTP/1.1" 200 16566
+[INFO] 2025-06-10 13:07:32,274 django.server "GET /media/recipes/5.jpeg HTTP/1.1" 304 0

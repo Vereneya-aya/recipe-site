@@ -8,10 +8,10 @@
   <p><strong>Описание:</strong> {{ recipe.description }}</p>
   <p><strong>Ингредиенты:</strong> {{ recipe.ingredients }}</p>
   <p><strong>Шаги приготовления:</strong> {{ recipe.instructions }}</p>
-  <p><strong>Время:</strong> {{ recipe.cooking_time }} минут</p>
+  <p><strong>⏱ Время:</strong> {{ recipe.cooking_time }} минут</p>
 
   {% if recipe.image %}
-    <img src="{{ recipe.image.url }}" class="img-fluid mt-3" alt="{{ recipe.name }}">
+    <img src="{{ recipe.image.url }}" class="img-fluid mt-3 mb-3" alt="{{ recipe.name }}" style="max-height: 400px; object-fit: cover; object-position: center; width: 100%;">
   {% endif %}
 
   <div class="mt-4 d-flex gap-2 flex-wrap">
