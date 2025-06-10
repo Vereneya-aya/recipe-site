@@ -1,15 +1,19 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
 from django.urls import reverse_lazy
 
+# Загрузка .env
+load_dotenv()
+
+# Базовая директория
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure--cj601m$25m^-=_3wyb$qb810^jvd(ejvj@=ghm@r(#01es+g*'
-
-DEBUG = True
-
-ALLOWED_HOSTS = []
+# Основные настройки
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "your-default-secret")
+DEBUG = os.getenv("DJANGO_DEBUG", "0") == "1"
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 # Приложения
 INSTALLED_APPS = [
@@ -19,12 +23,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'recipe_app',
-    'user_app',
+
+    # Сторонние
     'rest_framework',
     'django_filters',
     'drf_yasg',
     'debug_toolbar',
+
+    # Собственные
+    'recipe_app',
+    'user_app',
 ]
 
 # Middleware
@@ -37,16 +45,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-
 ]
 
+# URL-конфигурация
 ROOT_URLCONF = 'mysite.urls'
 
 # Шаблоны
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # для глобальных шаблонов (напр. login.html)
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -59,6 +67,7 @@ TEMPLATES = [
     },
 ]
 
+# WSGI-приложение
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # База данных
@@ -69,7 +78,7 @@ DATABASES = {
     }
 }
 
-# Валидация пароля
+# Валидаторы паролей
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -85,28 +94,25 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Язык и часовой пояс
+# Интернационализация
 LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'Europe/Moscow'
-
 USE_I18N = True
 USE_TZ = True
 
-# Статика
-STATIC_URL = 'static/'
+# Статические файлы
+STATIC_URL = '/static/'
 
-# Настройки входа / выхода
+# Медиафайлы
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# Логин/лог-аут
 LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = reverse_lazy("user_app:profile")
 LOGOUT_REDIRECT_URL = '/users/login/'
 
-# Ключ по умолчанию
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
+# Настройки REST Framework
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
@@ -118,47 +124,34 @@ REST_FRAMEWORK = {
     ],
 }
 
-import os
+# Логирование
+LOGLEVEL = os.getenv("DJANGO_LOGLEVEL", "info").upper()
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,  # не отключаем встроенные логгеры
-    'formatters': {
-        'verbose': {
-            'format': '[{levelname}] {asctime} {name} {message}',
-            'style': '{',
-        },
-        'simple': {
-            'format': '[{levelname}] {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "default": {
+            "format": "[{levelname}] {asctime} {name} - {message}",
+            "style": "{",
         },
     },
-    'handlers': {
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs', 'project.log'),
-            'formatter': 'verbose',
-        },
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple',
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "default",
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['file', 'console'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-        'recipe_app': {
-            'handlers': ['file', 'console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
+    "root": {
+        "handlers": ["console"],
+        "level": LOGLEVEL,
     },
 }
 
+# Внутренние IPs для debug_toolbar
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+# Поле ID по умолчанию
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
