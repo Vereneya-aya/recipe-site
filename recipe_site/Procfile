@@ -1,1 +1,1 @@
-web: gunicorn mysite.wsgi:application --bind 0.0.0.0:$PORT
+web: gunicorn recipe_site.mysite.wsgi:application --bind 0.0.0.0:$PORT

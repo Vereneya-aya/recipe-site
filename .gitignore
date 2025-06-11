@@ -1,24 +1,59 @@
-  $ git status
-    [...]
-    # Untracked files:
-    [...]
-    #       Documentation/foo.html
-    #       Documentation/gitignore.html
-    #       file.o
-    #       lib.a
-    #       src/internal.o
-    [...]
-    $ cat .git/info/exclude
-    # ignore objects and archives, anywhere in the tree.
-    *.[oa]
-    $ cat Documentation/.gitignore
-    # ignore generated html files,
-    *.html
-    # except foo.html which is maintained by hand
-    !foo.html
-    $ git status
-    [...]
-    # Untracked files:
-    [...]
-    #       Documentation/foo.html
-    [...]
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+*.sqlite3
+
+# Environment
+.env
+.env.*
+
+# VSCode / IDE
+.vscode/
+.idea/
+
+# Migrations (опционально, если ты хочешь, чтобы они генерировались на стороне сервера)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Byte-compiled / cache
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pyc
+
+# Docker
+*.pid
+*.seed
+*.bak
+*.swp
+docker-compose.override.yml
+
+# Logs
+logs/
+*.log
+
+# Coverage / test
+.coverage
+htmlcov/
+.tox/
+.nox/
+.cache/
+pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db

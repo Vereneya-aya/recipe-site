@@ -13,7 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Основные настройки
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "your-default-secret")
 DEBUG = os.getenv("DJANGO_DEBUG", "0") == "1"
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+#ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+#ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS") or os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost")
+ALLOWED_HOSTS = ALLOWED_HOSTS.split(",")
 
 # Приложения
 INSTALLED_APPS = [
@@ -68,15 +71,14 @@ TEMPLATES = [
 ]
 
 # WSGI-приложение
-WSGI_APPLICATION = 'mysite.wsgi.application'
-
+WSGI_APPLICATION = 'recipe_site.mysite.wsgi.application'
 # База данных
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Валидаторы паролей
 AUTH_PASSWORD_VALIDATORS = [
@@ -155,3 +157,23 @@ INTERNAL_IPS = [
 
 # Поле ID по умолчанию
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import dj_database_url
+
+import dj_database_url
+
+if os.getenv("DATABASE_URL"):
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.getenv("DATABASE_URL"),
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
