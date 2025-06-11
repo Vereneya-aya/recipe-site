@@ -17,9 +17,10 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "your-default-secret")
 DEBUG = os.getenv("DJANGO_DEBUG", "0") == "1"
 
 ALLOWED_HOSTS = [
-                    "127.0.0.1",
-                    "0.0.0.0",
-                ] + os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
+    "127.0.0.1",
+    "0.0.0.0",
+    "recipe-site-production.up.railway.app",
+] + os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 # Приложения
 INSTALLED_APPS = [
