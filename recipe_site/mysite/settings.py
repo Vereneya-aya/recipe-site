@@ -78,14 +78,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'recipe_site.mysite.wsgi.application'
 
 # База данных
-DATABASE_DIR = BASE_DIR / "database"
-DATABASE_DIR.mkdir(exist_ok=True)
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': DATABASE_DIR / 'db.sqlite3',
+import dj_database_url
+
+if os.getenv("DATABASE_URL"):  # Railway / прод
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)
     }
-}
+else:  # Локально
+    DATABASE_DIR = BASE_DIR / "database"
+    DATABASE_DIR.mkdir(exist_ok=True)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': DATABASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Валидаторы паролей
 AUTH_PASSWORD_VALIDATORS = [
