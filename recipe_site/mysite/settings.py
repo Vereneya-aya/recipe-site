@@ -1,28 +1,33 @@
-import logging.config
 import os
+import logging.config
 from pathlib import Path
-
-from django.conf.global_settings import DATABASES
 from dotenv import load_dotenv
 from django.urls import reverse_lazy
+import dj_database_url
 
 # Загрузка .env
 load_dotenv()
 
-# Базовая директория
+# Базовая директория проекта
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Основные настройки
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "your-default-secret")
 DEBUG = os.getenv("DJANGO_DEBUG", "0") == "1"
 
+# Разрешённые хосты
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "0.0.0.0",
     "recipe-site-production.up.railway.app",
-] + os.getenv("DJANGO_ALLOWED_HOSTS", "").split(",")
+]
 
-# Приложения
+# Если DJANGO_ALLOWED_HOSTS задан и не пуст, добавляем их
+extra_hosts = os.getenv("DJANGO_ALLOWED_HOSTS")
+if extra_hosts:
+    ALLOWED_HOSTS += [host.strip() for host in extra_hosts.split(",") if host.strip()]
+
+# Установленные приложения
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,7 +60,7 @@ MIDDLEWARE = [
 ]
 
 # URL-конфигурация
-ROOT_URLCONF = 'mysite.urls'
+ROOT_URLCONF = 'mysite.urls'  # Убедись, что у тебя папка называется mysite. Иначе замени.
 
 # Шаблоны
 TEMPLATES = [
@@ -75,16 +80,14 @@ TEMPLATES = [
 ]
 
 # WSGI-приложение
-WSGI_APPLICATION = 'mysite.wsgi.application'
+WSGI_APPLICATION = 'mysite.wsgi.application'  # проверь, что wsgi.py лежит именно в mysite
 
 # База данных
-import dj_database_url
-
-if os.getenv("DATABASE_URL"):  # Railway / прод
+if os.getenv("DATABASE_URL"):  # Railway
     DATABASES = {
         'default': dj_database_url.config(conn_max_age=600)
     }
-else:  # Локально
+else:  # Локальная SQLite
     DATABASE_DIR = BASE_DIR / "database"
     DATABASE_DIR.mkdir(exist_ok=True)
     DATABASES = {
@@ -96,18 +99,10 @@ else:  # Локально
 
 # Валидаторы паролей
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 # Интернационализация
@@ -116,19 +111,17 @@ TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True
 USE_TZ = True
 
-# Статические файлы
+# Статические и медиа-файлы
 STATIC_URL = '/static/'
-
-# Медиафайлы
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-# Логин/лог-аут
+# Настройки входа/выхода
 LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = reverse_lazy("user_app:profile")
 LOGOUT_REDIRECT_URL = '/users/login/'
 
-# Настройки REST Framework
+# Настройки DRF
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
@@ -141,7 +134,7 @@ REST_FRAMEWORK = {
 }
 
 # Логирование
-LOGLEVEL = os.getenv("DJANGO_LOGLEVEL", "info").upper()
+LOGLEVEL = os.getenv("DJANGO_LOGLEVEL", "INFO").upper()
 logging.config.dictConfig({
     "version": 1,
     "disable_existing_loggers": False,
@@ -160,18 +153,13 @@ logging.config.dictConfig({
     "loggers": {
         "": {
             "level": LOGLEVEL,
-            "handlers": [
-                "console",
-            ],
+            "handlers": ["console"],
         },
     },
 })
 
-# Внутренние IPs для debug_toolbar
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
+# IP для debug_toolbar
+INTERNAL_IPS = ['127.0.0.1']
 
 # Поле ID по умолчанию
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
