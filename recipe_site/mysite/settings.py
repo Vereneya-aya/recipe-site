@@ -75,7 +75,7 @@ TEMPLATES = [
 ]
 
 # WSGI-приложение
-WSGI_APPLICATION = 'recipe_site.mysite.wsgi.application'
+WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # База данных
 import dj_database_url
