@@ -51,13 +51,12 @@ class RecipesByCategoryView(ListView):
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'recipe_app/recipe_detail.html'
-    context_object_name = 'recipe'
+    context_object_name = 'recipes'
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
         logger.info(f"[{self.request.user}] просматривает рецепт: {obj.name} (ID={obj.id})")
         return obj
-
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
