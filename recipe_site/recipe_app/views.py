@@ -51,7 +51,7 @@ class RecipesByCategoryView(ListView):
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'recipe_app/recipe_detail.html'
-    context_object_name = 'recipes'
+    context_object_name = 'recipe'
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset)
