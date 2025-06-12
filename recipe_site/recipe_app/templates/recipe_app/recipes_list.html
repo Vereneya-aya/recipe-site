@@ -1,88 +1,87 @@
 {% extends "recipe_app/base.html" %}
 
 {% block content %}
-<!-- Навигация -->
+<!-- 🔐 Навигация -->
 <nav class="mb-4 d-flex flex-wrap gap-3 align-items-center">
     {% if user.is_authenticated %}
-    <span class="me-2">👤 {{ user.username }}</span>
-    <a href="{% url 'user_app:profile' %}" class="btn btn-outline-primary btn-sm">Профиль</a>
-    <form action="{% url 'user_app:logout' %}" method="post" style="display:inline;">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-outline-danger btn-sm">Выйти</button>
-    </form>
+        <span class="me-2">👤 {{ user.username }}</span>
+        <a href="{% url 'user_app:profile' %}" class="btn btn-outline-primary btn-sm">Профиль</a>
+        <form action="{% url 'user_app:logout' %}" method="post" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger btn-sm">Выйти</button>
+        </form>
     {% else %}
-    <a href="{% url 'user_app:signup' %}" class="btn btn-success btn-sm">Регистрация</a>
-    <a href="{% url 'user_app:login' %}" class="btn btn-primary btn-sm">Войти</a>
+        <a href="{% url 'user_app:signup' %}" class="btn btn-success btn-sm">Регистрация</a>
+        <a href="{% url 'user_app:login' %}" class="btn btn-primary btn-sm">Войти</a>
     {% endif %}
 </nav>
 
-<!-- 🔹 Случайные рецепты -->
+<!-- 🎲 Случайные рецепты -->
 <h4 class="mt-4">🎲 Случайные рецепты</h4>
 <div class="row row-cols-1 row-cols-md-3 g-3 mb-4">
     {% for recipe in random_recipes %}
-    <div class="col">
-        <div class="card h-100 border-info shadow-sm">
-            {% if recipe.image %}
-            <img src="{{ recipe.image.url }}" class="card-img-top" style="height: 150px; object-fit: cover;">
-            {% endif %}
-            <div class="card-body">
-                <h5 class="card-title">
-                    <a href="{% url 'recipe_app:recipe_detail' recipe.pk %}" class="text-decoration-none">{{ recipe.name
-                        }}</a>
-                </h5>
-                <p class="card-text">{{ recipe.description|truncatechars:80 }}</p>
+        <div class="col">
+            <div class="card h-100 border-info shadow-sm">
+                {% if recipe.image %}
+                    <img src="{{ recipe.image.url }}" class="card-img-top" style="height: 150px; object-fit: cover;" alt="{{ recipe.name }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'recipe_app:recipe_detail' recipe.pk %}" class="text-decoration-none">
+                            {{ recipe.name }}
+                        </a>
+                    </h5>
+                    <p class="card-text">{{ recipe.description|truncatechars:80 }}</p>
+                </div>
             </div>
         </div>
-    </div>
     {% empty %}
-    <p>Нет случайных рецептов.</p>
+        <p>Нет случайных рецептов.</p>
     {% endfor %}
 </div>
 
-<!-- 🔹 Категории -->
+<!-- 📚 Категории -->
 <h4>📚 Категории</h4>
 <ul class="list-inline mb-4">
     {% for category in categories %}
-    <li class="list-inline-item">
-        <a href="{% url 'recipe_app:recipes_by_category' category.pk %}"
-           class="badge bg-secondary px-3 py-2 text-decoration-none">
-            {{ category.name }}
-        </a>
-    </li>
+        <li class="list-inline-item">
+            <a href="{% url 'recipe_app:recipes_by_category' category.pk %}"
+               class="badge bg-secondary px-3 py-2 text-decoration-none">
+                {{ category.name }}
+            </a>
+        </li>
     {% empty %}
-    <li>Категорий пока нет.</li>
+        <li>Категорий пока нет.</li>
     {% endfor %}
 </ul>
 
-<!-- Заголовок -->
+<!-- 📜 Список рецептов -->
 <h2>Список рецептов:</h2>
-
-<!-- Список рецептов -->
 <div class="row row-cols-1 row-cols-md-2 g-4">
     {% for recipe in recipes %}
-    <div class="col">
-        <div class="card shadow-sm h-100">
-            {% if recipe.image %}
-            <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.name }}"
-                 style="height: 200px; object-fit: cover; object-position: center;">
-            {% endif %}
-            <div class="card-body">
-                <h5 class="card-title">
-                    <a href="{% url 'recipe_app:recipe_detail' recipe.pk %}" class="text-decoration-none text-primary">
-                        {{ recipe.name }}
-                    </a>
-                </h5>
-                <p class="card-text">{{ recipe.description|truncatechars:120 }}</p>
-                <p class="mb-1"><strong>⏱ Время:</strong> {{ recipe.cooking_time }} мин</p>
-                <p class="mb-1"><strong>📅 Создан:</strong> {{ recipe.created_at|date:"d.m.Y H:i" }}</p>
+        <div class="col">
+            <div class="card shadow-sm h-100">
+                {% if recipe.image %}
+                    <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.name }}"
+                         style="height: 200px; object-fit: cover; object-position: center;">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'recipe_app:recipe_detail' recipe.pk %}" class="text-decoration-none text-primary">
+                            {{ recipe.name }}
+                        </a>
+                    </h5>
+                    <p class="card-text">{{ recipe.description|truncatechars:120 }}</p>
+                    <p class="mb-1"><strong>⏱ Время:</strong> {{ recipe.cooking_time }} мин</p>
+                    <p class="mb-1"><strong>📅 Создан:</strong> {{ recipe.created_at|date:"d.m.Y H:i" }}</p>
+                </div>
             </div>
         </div>
-    </div>
     {% empty %}
-    <p>Пока рецептов нет.</p>
+        <p>Пока рецептов нет.</p>
     {% endfor %}
 </div>
 
-<!-- Количество -->
+<!-- 🔢 Количество -->
 <p class="mt-4"><strong>Количество рецептов:</strong> {{ recipes|length }}</p>
 {% endblock %}
