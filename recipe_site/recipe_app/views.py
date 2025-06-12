@@ -7,6 +7,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .forms import RecipeForm
+from .models import Recipe, Category
 
 logger = logging.getLogger(__name__)
 
@@ -32,11 +33,6 @@ class RecipesListView(ListView):
         # все категории — для фильтра
         context['categories'] = Category.objects.all()
         return context
-
-
-from django.views.generic import ListView
-from .models import Recipe, Category
-from django.shortcuts import get_object_or_404
 
 class RecipesByCategoryView(ListView):
     model = Recipe
