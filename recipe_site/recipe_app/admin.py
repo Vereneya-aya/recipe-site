@@ -35,6 +35,12 @@ class RecipeAdmin(ExportAsCSVMixin, admin.ModelAdmin):  # ← добавлен �
 
     readonly_fields = ('created_at',)
 
+from .models import Category  # ← добавь импорт
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
 
 @admin.register(Like)
 class LikeAdmin(admin.ModelAdmin):

@@ -6,12 +6,14 @@ from django.views import View
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-
-from .models import Recipe
 from .forms import RecipeForm
 
 logger = logging.getLogger(__name__)
 
+
+from django.views.generic import ListView
+from .models import Recipe, Category
+import random
 
 class RecipesListView(ListView):
     model = Recipe
@@ -19,8 +21,17 @@ class RecipesListView(ListView):
     context_object_name = 'recipes'
 
     def get_queryset(self):
-        logger.info(f"[{self.request.user}] просматривает список рецептов")
         return Recipe.objects.filter(archived=False)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        all_recipes = list(Recipe.objects.filter(archived=False))
+        random.shuffle(all_recipes)
+        context['random_recipes'] = all_recipes[:5]
+
+        # все категории — для фильтра
+        context['categories'] = Category.objects.all()
+        return context
 
 
 class RecipeDetailView(DetailView):

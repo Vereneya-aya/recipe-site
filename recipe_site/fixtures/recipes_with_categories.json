@@ -1,0 +1,127 @@
+[
+    {
+        "model": "recipe_app.category",
+        "pk": 1,
+        "fields": {
+            "name": "Десерты"
+        }
+    },
+    {
+        "model": "recipe_app.category",
+        "pk": 2,
+        "fields": {
+            "name": "Закуски"
+        }
+    },
+    {
+        "model": "recipe_app.category",
+        "pk": 3,
+        "fields": {
+            "name": "Салаты"
+        }
+    },
+    {
+        "model": "recipe_app.category",
+        "pk": 4,
+        "fields": {
+            "name": "Основные блюда"
+        }
+    },
+    {
+        "model": "recipe_app.category",
+        "pk": 5,
+        "fields": {
+            "name": "Завтраки"
+        }
+    },
+    {
+        "model": "recipe_app.recipe",
+        "pk": 1,
+        "fields": {
+            "name": "Торт Наполеон",
+            "description": "Классический многослойный десерт с заварным кремом.",
+            "ingredients": "Мука, масло, яйца, молоко, сахар",
+            "instructions": "1. Замесить тесто. 2. Испечь коржи. 3. Промазать кремом. 4. Охладить.",
+            "cooking_time": 120,
+            "image": "",
+            "archived": false,
+            "created_at": "2025-06-12T10:08:54.272607",
+            "author": 1,
+            "categories": [
+                1
+            ]
+        }
+    },
+    {
+        "model": "recipe_app.recipe",
+        "pk": 2,
+        "fields": {
+            "name": "Греческий салат",
+            "description": "Освежающий салат с фетой и оливками.",
+            "ingredients": "Огурцы, помидоры, фета, оливки, масло",
+            "instructions": "1. Нарезать овощи. 2. Добавить фету и оливки. 3. Полить маслом.",
+            "cooking_time": 15,
+            "image": "",
+            "archived": false,
+            "created_at": "2025-06-12T10:08:54.272621",
+            "author": 1,
+            "categories": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "recipe_app.recipe",
+        "pk": 3,
+        "fields": {
+            "name": "Куриные крылышки BBQ",
+            "description": "Острые запечённые крылышки в соусе BBQ.",
+            "ingredients": "Куриные крылышки, BBQ соус, специи",
+            "instructions": "1. Замариновать. 2. Запечь в духовке. 3. Подать горячими.",
+            "cooking_time": 40,
+            "image": "",
+            "archived": false,
+            "created_at": "2025-06-12T10:08:54.272626",
+            "author": 1,
+            "categories": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "recipe_app.recipe",
+        "pk": 4,
+        "fields": {
+            "name": "Овсянка с фруктами",
+            "description": "Полезный завтрак с ягодами и мёдом.",
+            "ingredients": "Овсянка, молоко, ягоды, мёд",
+            "instructions": "1. Сварить овсянку. 2. Добавить ягоды и мёд.",
+            "cooking_time": 10,
+            "image": "",
+            "archived": false,
+            "created_at": "2025-06-12T10:08:54.272630",
+            "author": 1,
+            "categories": [
+                5
+            ]
+        }
+    },
+    {
+        "model": "recipe_app.recipe",
+        "pk": 5,
+        "fields": {
+            "name": "Брускетта с томатами",
+            "description": "Хрустящий хлеб с томатной начинкой.",
+            "ingredients": "Багет, помидоры, чеснок, базилик, масло",
+            "instructions": "1. Поджарить багет. 2. Добавить начинку. 3. Подать сразу.",
+            "cooking_time": 20,
+            "image": "",
+            "archived": false,
+            "created_at": "2025-06-12T10:08:54.272633",
+            "author": 1,
+            "categories": [
+                2
+            ]
+        }
+    }
+]
