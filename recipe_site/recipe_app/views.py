@@ -34,6 +34,24 @@ class RecipesListView(ListView):
         return context
 
 
+from django.views.generic import ListView
+from .models import Recipe, Category
+from django.shortcuts import get_object_or_404
+
+class RecipesByCategoryView(ListView):
+    model = Recipe
+    template_name = 'recipe_app/recipes_by_category.html'
+    context_object_name = 'recipes'
+
+    def get_queryset(self):
+        self.category = get_object_or_404(Category, pk=self.kwargs['pk'])
+        return Recipe.objects.filter(categories=self.category)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = self.category
+        return context
+
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'recipe_app/recipe_detail.html'

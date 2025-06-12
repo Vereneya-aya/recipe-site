@@ -1,0 +1,29 @@
+{% extends "recipe_app/base.html" %}
+
+{% block content %}
+  <h2>📂 Рецепты в категории: "{{ category.name }}"</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for recipe in recipes %}
+      <div class="col">
+        <div class="card shadow-sm h-100">
+          {% if recipe.image %}
+            <img src="{{ recipe.image.url }}" class="card-img-top" alt="{{ recipe.name }}" style="height: 200px; object-fit: cover;">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{% url 'recipe_app:recipe_detail' recipe.pk %}" class="text-decoration-none text-primary">
+                {{ recipe.name }}
+              </a>
+            </h5>
+            <p class="card-text">{{ recipe.description|truncatechars:120 }}</p>
+            <p class="mb-1"><strong>⏱ Время:</strong> {{ recipe.cooking_time }} мин</p>
+            <p class="mb-1"><strong>📅 Создан:</strong> {{ recipe.created_at|date:"d.m.Y H:i" }}</p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p>Нет рецептов в этой категории.</p>
+    {% endfor %}
+  </div>
+{% endblock %}
