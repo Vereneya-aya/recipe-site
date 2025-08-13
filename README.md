@@ -1,22 +1,22 @@
-# Проект "Сайт рецептов" (Django)
+Project “Recipe Website” (Django)
 
-Это веб-приложение на Django, позволяющее пользователям добавлять, просматривать и управлять рецептами.
+This is a Django web application that allows users to add, view, and manage recipes.
 
-## 🚀 Возможности
-- Регистрация, вход, выход
-- Просмотр списка рецептов и детальной информации
-- Добавление, редактирование, удаление рецептов
-- Архивация рецептов
-- Лайки на рецепты
-- Профиль пользователя с его рецептами
+🚀 Features
+	•	User registration, login, and logout
+	•	Viewing a list of recipes and detailed recipe pages
+	•	Adding, editing, and deleting recipes
+	•	Archiving recipes
+	•	Liking recipes
+	•	User profile with their own recipes
 
-## 🧱 Стек технологий
-- Python 3.10+
-- Django 5.2
-- SQLite
-- HTML / CSS (Bootstrap)
+🧱 Tech Stack
+	•	Python 3.10+
+	•	Django 5.2
+	•	SQLite
+	•	HTML / CSS (Bootstrap)
 
-## 📂 Структура проекта
+📂 Project Structure
 
 RecipesPythonDjango/
 ├── manage.py
@@ -41,45 +41,41 @@ RecipesPythonDjango/
 │       ├── forms.py
 │       └── urls.py
 └── user_app/
-├── templates/user_app/
-│   ├── login.html
-│   ├── logout.html
-│   ├── signup.html
-│   └── profile.html 
-├── views.py
-├── forms.py
-└── urls.py
+    ├── templates/user_app/
+    │   ├── login.html
+    │   ├── logout.html
+    │   ├── signup.html
+    │   └── profile.html 
+    ├── views.py
+    ├── forms.py
+    └── urls.py
 
+⚙️ Installation & Running the Project
 
-## ⚙️ Установка и запуск проекта
-
-1. **Клонировать репозиторий**
-
+	1.	Clone the repository
 git clone https://github.com/Vereneya-aya/recipe-site.git
 cd RecipesPythonDjango
 
-2.	Создать и активировать виртуальное окружение
-
+	2.	Create and activate a virtual environment
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
-3.	Установить зависимости
 
+	3.	Install dependencies
 pip install -r requirements.txt
 
-4. Применить миграции и создать суперпользователя
 
+	4.	Apply migrations and create a superuser
 python manage.py migrate
 python manage.py createsuperuser
 
-5.	(опционально) Загрузить фикстуры с рецептами
 
+	5.	(Optional) Load fixtures with sample recipes
 python manage.py loaddata recipes.json
 
-6.	Запустить сервер
 
+	6.	Run the server
 python manage.py runserver
 
-📥 Фикстуры
-
-Фикстуры можно найти в файле recipes.json в директории fixtures/.
+📥 Fixtures
+The fixtures can be found in the recipes.json file inside the fixtures/ directory.
