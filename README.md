@@ -52,30 +52,38 @@ RecipesPythonDjango/
 
 ⚙️ Installation & Running the Project
 
-	1.	Clone the repository
+1.	Clone the repository
+ ```bash
 git clone https://github.com/Vereneya-aya/recipe-site.git
 cd RecipesPythonDjango
+```
 
-	2.	Create and activate a virtual environment
+2.	Create and activate a virtual environment
+   ```bash
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
+```
 
-
-	3.	Install dependencies
+3.	Install dependencies
+   ```bash
 pip install -r requirements.txt
+```
 
-
-	4.	Apply migrations and create a superuser
+4.	Apply migrations and create a superuser
+```bash
 python manage.py migrate
-python manage.py createsuperuser
+python manage.py createsuperuser  
+```
 
-
-	5.	(Optional) Load fixtures with sample recipes
+5.	(Optional) Load fixtures with sample recipes
+```bash
 python manage.py loaddata recipes.json
+```
 
-
-	6.	Run the server
+6.	Run the server
+   ```bash
 python manage.py runserver
+```
 
 📥 Fixtures
 The fixtures can be found in the recipes.json file inside the fixtures/ directory.
