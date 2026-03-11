@@ -1,0 +1,127 @@
+[
+  {
+    "model": "recipe_app.category",
+    "pk": 1,
+    "fields": {
+      "name": "Desserts"
+    }
+  },
+  {
+    "model": "recipe_app.category",
+    "pk": 2,
+    "fields": {
+      "name": "Appetizers"
+    }
+  },
+  {
+    "model": "recipe_app.category",
+    "pk": 3,
+    "fields": {
+      "name": "Salads"
+    }
+  },
+  {
+    "model": "recipe_app.category",
+    "pk": 4,
+    "fields": {
+      "name": "Main Dishes"
+    }
+  },
+  {
+    "model": "recipe_app.category",
+    "pk": 5,
+    "fields": {
+      "name": "Breakfast"
+    }
+  },
+  {
+    "model": "recipe_app.recipe",
+    "pk": 1,
+    "fields": {
+      "name": "Napoleon Cake",
+      "description": "A classic layered pastry dessert with custard cream.",
+      "ingredients": "Flour, butter, eggs, milk, sugar",
+      "instructions": "1. Prepare the dough. 2. Bake the layers. 3. Spread custard cream between layers. 4. Chill before serving.",
+      "cooking_time": 120,
+      "image": "recipes/napoleon_cake.jpg",
+      "archived": false,
+      "created_at": "2025-06-12T10:08:54Z",
+      "author": 1,
+      "categories": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "recipe_app.recipe",
+    "pk": 2,
+    "fields": {
+      "name": "Greek Salad",
+      "description": "A refreshing salad with feta cheese, olives, and vegetables.",
+      "ingredients": "Cucumbers, tomatoes, feta cheese, olives, olive oil",
+      "instructions": "1. Chop vegetables. 2. Add feta and olives. 3. Drizzle with olive oil.",
+      "cooking_time": 15,
+      "image": "recipes/greek_salad.jpeg",
+      "archived": false,
+      "created_at": "2025-06-12T10:08:54Z",
+      "author": 1,
+      "categories": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "recipe_app.recipe",
+    "pk": 3,
+    "fields": {
+      "name": "BBQ Chicken Wings",
+      "description": "Spicy baked chicken wings with BBQ sauce.",
+      "ingredients": "Chicken wings, BBQ sauce, spices",
+      "instructions": "1. Marinate the wings. 2. Bake in the oven. 3. Serve hot.",
+      "cooking_time": 40,
+      "image": "recipes/bbq_wings.jpg",
+      "archived": false,
+      "created_at": "2025-06-12T10:08:54Z",
+      "author": 1,
+      "categories": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "recipe_app.recipe",
+    "pk": 4,
+    "fields": {
+      "name": "Oatmeal with Fruits",
+      "description": "A healthy breakfast with berries and honey.",
+      "ingredients": "Oats, milk, berries, honey",
+      "instructions": "1. Cook the oatmeal. 2. Add berries and honey on top.",
+      "cooking_time": 10,
+      "image": "recipes/oatmeal_fruit.jpg",
+      "archived": false,
+      "created_at": "2025-06-12T10:08:54Z",
+      "author": 1,
+      "categories": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "recipe_app.recipe",
+    "pk": 5,
+    "fields": {
+      "name": "Tomato Bruschetta",
+      "description": "Crispy toasted bread topped with fresh tomatoes and basil.",
+      "ingredients": "Baguette, tomatoes, garlic, basil, olive oil",
+      "instructions": "1. Toast the baguette slices. 2. Add tomato mixture. 3. Serve immediately.",
+      "cooking_time": 20,
+      "image": "recipes/bruschetta.jpg",
+      "archived": false,
+      "created_at": "2025-06-12T10:08:54Z",
+      "author": 1,
+      "categories": [
+        2
+      ]
+    }
+  }
+]
