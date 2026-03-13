@@ -4,21 +4,44 @@
 
 {% block content %}
 <div class="container">
-  <h2>{{ recipe.name }}</h2>
-  <p><strong>Описание:</strong> {{ recipe.description }}</p>
-  <p><strong>Ингредиенты:</strong> {{ recipe.ingredients }}</p>
-  <p><strong>Шаги приготовления:</strong> {{ recipe.instructions }}</p>
-  <p><strong>⏱ Время:</strong> {{ recipe.cooking_time }} минут</p>
+    <h2>{{ recipe.name }}</h2>
+    <p><strong>Description:</strong> {{ recipe.description }}</p>
+    <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+    <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+    <p><strong>⏱ Cooking time:</strong> {{ recipe.cooking_time }} minutes</p>
 
-  {% if recipe.image %}
-    <img src="{{ recipe.image.url }}" class="img-fluid mt-3 mb-3" alt="{{ recipe.name }}" style="max-height: 400px; object-fit: cover; object-position: center; width: 100%;">
-  {% endif %}
+    {% if recipe.image %}
+    <img src="{{ recipe.image.url }}" class="img-fluid mt-3 mb-3" alt="{{ recipe.name }}"
+         style="max-height: 400px; object-fit: cover; object-position: center; width: 100%;">
+    {% endif %}
 
-  <div class="mt-4 d-flex gap-2 flex-wrap">
-    <a href="{% url 'recipe_app:update_recipe' recipe.pk %}" class="btn btn-warning">Редактировать</a>
-    <a href="{% url 'recipe_app:confirm_archive' recipe.pk %}" class="btn btn-secondary">Архивировать</a>
-    <a href="{% url 'recipe_app:confirm_delete' recipe.pk %}" class="btn btn-danger">Удалить</a>
-    <a href="{% url 'recipe_app:recipes_list' %}" class="btn btn-outline-primary">Назад к списку</a>
-  </div>
+    <div class="mt-4 d-flex gap-2 flex-wrap">
+
+        {% if recipe.author == user %}
+
+        {% if recipe.archived %}
+
+        <form method="post" action="{% url 'recipe_app:restore_recipe' recipe.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Restore</button>
+        </form>
+
+        {% else %}
+
+        <a href="{% url 'recipe_app:update_recipe' recipe.pk %}" class="btn btn-warning">Edit</a>
+
+        <a href="{% url 'recipe_app:confirm_archive' recipe.pk %}" class="btn btn-secondary">
+            Archive
+        </a>
+
+        {% endif %}
+
+        <a href="{% url 'recipe_app:confirm_delete' recipe.pk %}" class="btn btn-danger">Delete</a>
+
+        {% endif %}
+
+        <a href="{% url 'recipe_app:recipes_list' %}" class="btn btn-outline-primary">Back to list</a>
+
+    </div>
 </div>
 {% endblock %}

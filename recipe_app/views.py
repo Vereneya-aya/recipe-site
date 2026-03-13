@@ -120,3 +120,13 @@ def group_list(request):
     logger.info(f"[{request.user}] просматривает список групп")
     groups = Group.objects.prefetch_related('permissions').all()
     return render(request, 'recipe_app/groups.html', {'groups': groups})
+
+class RecipeRestoreView(LoginRequiredMixin, View):
+    def post(self, request, pk):
+        recipe = get_object_or_404(Recipe, pk=pk, author=request.user)
+        recipe.archived = False
+        recipe.save()
+
+        logger.info(f"[{request.user}] восстановил рецепт: {recipe.name} (ID={recipe.id})")
+
+        return redirect('recipe_app:recipe_detail', pk=recipe.pk)

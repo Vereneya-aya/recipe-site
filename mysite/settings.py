@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from django.urls import reverse_lazy
 import dj_database_url
 
-# Загрузка .env
+# Загрузка переменных окружения из .env
 load_dotenv()
 
 # Базовая директория проекта
@@ -22,13 +22,14 @@ ALLOWED_HOSTS = [
     "recipe-site-production.up.railway.app",
 ]
 
-# Если DJANGO_ALLOWED_HOSTS задан и не пуст, добавляем их
+# Если есть дополнительные хосты из .env
 extra_hosts = os.getenv("DJANGO_ALLOWED_HOSTS")
 if extra_hosts:
     ALLOWED_HOSTS += [host.strip() for host in extra_hosts.split(",") if host.strip()]
 
 # Установленные приложения
 INSTALLED_APPS = [
+    # Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,12 +41,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'drf_yasg',
-    'debug_toolbar',
 
     # Собственные
     'recipe_app',
     'user_app',
 ]
+
+# Debug toolbar только для локальной разработки
+if DEBUG:
+    INSTALLED_APPS += ['debug_toolbar']
 
 # Middleware
 MIDDLEWARE = [
@@ -56,11 +60,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
+if DEBUG:
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
+
 # URL-конфигурация
-ROOT_URLCONF = 'mysite.urls'  # Убедись, что у тебя папка называется mysite. Иначе замени.
+ROOT_URLCONF = 'mysite.urls'  # Заменить, если твоя папка называется иначе
 
 # Шаблоны
 TEMPLATES = [
@@ -80,14 +86,14 @@ TEMPLATES = [
 ]
 
 # WSGI-приложение
-WSGI_APPLICATION = 'mysite.wsgi.application'  # проверь, что wsgi.py лежит именно в mysite
+WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # База данных
-if os.getenv("DATABASE_URL"):  # Railway
+if os.getenv("DATABASE_URL"):
     DATABASES = {
         'default': dj_database_url.config(conn_max_age=600)
     }
-else:  # Локальная SQLite
+else:
     DATABASE_DIR = BASE_DIR / "database"
     DATABASE_DIR.mkdir(exist_ok=True)
     DATABASES = {
@@ -106,22 +112,24 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Интернационализация
-LANGUAGE_CODE = 'ru-ru'
-TIME_ZONE = 'Europe/Moscow'
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
 # Статические и медиа-файлы
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Настройки входа/выхода
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
+
+# Настройки логина/логаута
 LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = reverse_lazy("user_app:profile")
 LOGOUT_REDIRECT_URL = '/users/login/'
 
-# Настройки DRF
+# DRF настройки
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
@@ -158,12 +166,13 @@ logging.config.dictConfig({
     },
 })
 
-# IP для debug_toolbar
+# Debug toolbar IP
 INTERNAL_IPS = ['127.0.0.1']
 
 # Поле ID по умолчанию
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# CSRF trusted origins для деплоя
 CSRF_TRUSTED_ORIGINS = [
     "https://recipe-site-production.up.railway.app",
 ]

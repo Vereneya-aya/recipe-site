@@ -5,74 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8222ef11-8727-4581-bd6d-1f3a4dd841e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/RecipesPythonDjango.code-workspace" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user_app/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/recipes/greek_salad.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/recipes/vegan_ramen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/screens/admin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/screens/recipe_detail.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/RecipesPythonDjango.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RecipesPythonDjango.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/.env.template" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/fixtures/recipes_with_categories.json" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/recipes_with_categories.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/fixtures/user_fixture.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/logs/project.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/media/recipes/1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/media/recipes/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/media/recipes/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/media/recipes/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/media/recipes/5.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/mysite/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/mysite/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/mysite/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/admin_mixins.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/admin_mixins.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/api_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/api_urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/api_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/api_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/management/commands/create_recipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/management/commands/create_recipe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/migrations/0002_alter_recipe_author.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/migrations/0003_recipe_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/management/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/templates/recipe_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/templates/recipe_app/confirm_archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/confirm_archive.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/templates/recipe_app/confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/confirm_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/templates/recipe_app/create_recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/create_recipe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/templates/recipe_app/groups.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/groups.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/templates/recipe_app/recipe_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/recipe_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/templates/recipe_app/recipes_by_category.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/recipes_by_category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/templates/recipe_app/recipes_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/recipes_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/templates/recipe_app/update_recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/update_recipe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/recipe_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/management/commands/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/templates/user_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/templates/user_app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/templates/user_app/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/templates/user_app/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/templates/user_app/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/templates/user_app/logout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/templates/user_app/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/templates/user_app/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/templates/user_app/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/templates/user_app/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe_site/user_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fixtures/recipes_with_categories.json" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/recipes_with_categories.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/recipes/ oatmeal_fruit.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/recipes/oatmeal_fruit.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/recipes/greek_salad.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/templates/recipe_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/templates/recipe_app/confirm_archive.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/confirm_archive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/templates/recipe_app/confirm_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/confirm_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/templates/recipe_app/create_recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/create_recipe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/templates/recipe_app/groups.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/groups.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/templates/recipe_app/recipe_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/recipe_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/templates/recipe_app/recipes_by_category.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/recipes_by_category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/templates/recipe_app/recipes_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/recipes_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/templates/recipe_app/update_recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/templates/recipe_app/update_recipe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipe_app/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,20 +66,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/veranikalis/IT_learning/PetProjects/RecipesPythonDjango/media/recipes&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/veranikalis/IT_learning/PetProjects/RecipesPythonDjango/media/screens",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/media/screens" />
       <recent name="$PROJECT_DIR$/media/recipes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -159,5 +116,15 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/recipe_site" />
     </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mysite/urls.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

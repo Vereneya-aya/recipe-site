@@ -1,9 +1,9 @@
 {% extends 'recipe_app/base.html' %}
 
-{% block title %}Список групп{% endblock %}
+{% block title %}Groups List{% endblock %}
 
 {% block content %}
-  <h2>Группы пользователей</h2>
+  <h2>User Groups</h2>
 
   {% if groups %}
     <ul>
@@ -17,12 +17,12 @@
               {% endfor %}
             </ul>
           {% else %}
-            <p>Нет разрешений</p>
+            <p>No permissions</p>
           {% endif %}
         </li>
       {% endfor %}
     </ul>
   {% else %}
-    <p>Группы не найдены.</p>
+    <p>No groups found.</p>
   {% endif %}
 {% endblock %}

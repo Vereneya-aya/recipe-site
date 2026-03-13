@@ -1,89 +1,214 @@
-Project “Recipe Website” (Django)
+# Recipe Website
 
-This is a Django web application that allows users to add, view, and manage recipes.
+A Django web application where users can create, manage, and share cooking recipes.
 
-🚀 Features
-	•	User registration, login, and logout
-	•	Viewing a list of recipes and detailed recipe pages
-	•	Adding, editing, and deleting recipes
-	•	Archiving recipes
-	•	Liking recipes
-	•	User profile with their own recipes
+The project demonstrates full-stack Django development including authentication, CRUD operations, media uploads, and a REST API.
 
-🧱 Tech Stack
-	•	Python 3.10+
-	•	Django 5.2
-	•	SQLite
-	•	HTML / CSS (Bootstrap)
+---
 
-📂 Project Structure
+## Features
 
+* User registration, login, and logout
+* Create, edit, and delete recipes
+* Archive and restore recipes
+* Like recipes
+* Upload recipe images
+* Filter recipes by category
+* Random recipes on the homepage
+* User profile with personal recipes
+* Django Admin management
+* REST API for recipes
+* API documentation (Swagger / Redoc)
+
+---
+
+## Tech Stack
+
+### Backend
+
+* Python 3.10+
+* Django 5.x
+* Django REST Framework
+
+### Frontend
+
+* HTML
+* Bootstrap
+
+### Database
+
+* SQLite (development)
+* PostgreSQL via `DATABASE_URL` (production)
+
+### Other
+
+* Django Filters
+* DRF YASG (Swagger API documentation)
+
+---
+
+# Project Structure
+
+```bash
 RecipesPythonDjango/
+│
 ├── manage.py
 ├── requirements.txt
-├── db.sqlite3
+├── README.md
+│
 ├── recipe_site/
 │   ├── mysite/
 │   │   ├── settings.py
-│   │   └── urls.py
-│   └── recipe_app/
-│       ├── templates/recipe_app/
-│       │   ├── base.html
-│       │   ├── recipes_list.html
-│       │   ├── recipe_detail.html
-│       │   ├── create_recipe.html
-│       │   ├── update_recipe.html
-│       │   ├── confirm_delete.html
-│       │   ├── confirm_archive.html
-│       │   └── groups.html
-│       ├── models.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   │
+│   ├── recipe_app/
+│   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── forms.py
+│   │   ├── urls.py
+│   │   ├── admin.py
+│   │   │
+│   │   └── templates/recipe_app/
+│   │       ├── base.html
+│   │       ├── recipes_list.html
+│   │       ├── recipe_detail.html
+│   │       ├── create_recipe.html
+│   │       ├── update_recipe.html
+│   │       ├── confirm_delete.html
+│   │       └── confirm_archive.html
+│   │
+│   └── user_app/
 │       ├── views.py
 │       ├── forms.py
-│       └── urls.py
-└── user_app/
-    ├── templates/user_app/
-    │   ├── login.html
-    │   ├── logout.html
-    │   ├── signup.html
-    │   └── profile.html 
-    ├── views.py
-    ├── forms.py
-    └── urls.py
+│       ├── urls.py
+│       │
+│       └── templates/user_app/
+│           ├── login.html
+│           ├── signup.html
+│           └── profile.html
+│
+└── fixtures/
+    └── recipes.json
+```
 
-⚙️ Installation & Running the Project
+---
 
-1.	Clone the repository
- ```bash
+# Installation
+
+## Clone the repository
+
+```bash
 git clone https://github.com/Vereneya-aya/recipe-site.git
 cd RecipesPythonDjango
 ```
 
-2.	Create and activate a virtual environment
-   ```bash
+## Create and activate a virtual environment
+
+```bash
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 ```
 
-3.	Install dependencies
-   ```bash
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+## Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-4.	Apply migrations and create a superuser
+## Run database migrations
+
 ```bash
 python manage.py migrate
-python manage.py createsuperuser  
 ```
 
-5.	(Optional) Load fixtures with sample recipes
+## Create an admin user
+
 ```bash
-python manage.py loaddata recipes.json
+python manage.py createsuperuser
 ```
 
-6.	Run the server
-   ```bash
+## Load sample data (optional)
+
+```bash
+python manage.py loaddata fixtures/recipes.json
+```
+
+## Run the development server
+
+```bash
 python manage.py runserver
 ```
 
-📥 Fixtures
-The fixtures can be found in the recipes.json file inside the fixtures/ directory.
+Open in browser:
+
+```
+http://127.0.0.1:8000/
+```
+
+---
+
+# API Endpoints
+
+Main API routes:
+
+```
+/api/
+/api/recipes/
+/api/categories/
+```
+
+Interactive API documentation:
+
+### Swagger UI
+
+```
+/swagger/
+```
+
+### Redoc
+
+```
+/redoc/
+```
+
+---
+
+# Deployment
+
+The project can be deployed using platforms such as:
+
+* Railway
+* Render
+* Fly.io
+
+Production setup uses environment variables and `DATABASE_URL` for PostgreSQL configuration.
+
+---
+
+# Author
+
+**Veranika Lis**
+Python / Django Developer
+
+---
+
+## Screenshots
+
+### Home Page
+<img src="media/screens/home.png" width="700">
+
+### Recipe Detail
+<img src="media/screens/recipe_detail.png" width="700">
+
+### Admin Panel
+<img src="media/screens/admin.png" width="700">
+
+---
+Live Demo: https://your-app.onrender.com

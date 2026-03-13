@@ -1,5 +1,6 @@
+# -----------------
 # Python
-__pycache__/
+# -----------------
 *.py[cod]
 *.pyo
 *.pyd
@@ -8,44 +9,59 @@ __pycache__/
 *.egg-info/
 dist/
 build/
-*.log
+__pycache__/
 
+# -----------------
 # Django
+# -----------------
 db.sqlite3
 staticfiles/
-*.sqlite3
+media/
 
+# -----------------
 # Environment
+# -----------------
 .env
 .env.*
 
+# -----------------
 # VSCode / IDE
+# -----------------
 .vscode/
 .idea/
 
-# Migrations (опционально, если ты хочешь, чтобы они генерировались на стороне сервера)
+# -----------------
+# Migrations (keep __init__.py)
+# -----------------
 **/migrations/*.py
 !**/migrations/__init__.py
 
+# -----------------
 # Byte-compiled / cache
+# -----------------
 *.pyc
 *.pyo
 *.pyd
 __pycache__/
-*.pyc
 
+# -----------------
 # Docker
+# -----------------
 *.pid
 *.seed
 *.bak
 *.swp
 docker-compose.override.yml
 
+# -----------------
 # Logs
+# -----------------
 logs/
 *.log
 
-# Coverage / test
+# -----------------
+# Coverage / testing
+# -----------------
 .coverage
 htmlcov/
 .tox/
@@ -53,6 +69,8 @@ htmlcov/
 .cache/
 pytest_cache/
 
-# OS
+# -----------------
+# OS / system files
+# -----------------
 .DS_Store
 Thumbs.db

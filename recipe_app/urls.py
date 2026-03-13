@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import RecipesListView, RecipeCreateView, RecipeDetailView, group_list, RecipeUpdateView, RecipeDeleteView, \
-    RecipeArchiveView, RecipesByCategoryView
+    RecipeArchiveView, RecipesByCategoryView, RecipeRestoreView
 
 app_name = 'recipe_app'
 
@@ -13,5 +13,6 @@ urlpatterns = [
     path('recipes/<int:pk>/edit/', RecipeUpdateView.as_view(), name='update_recipe'),# /groups/
     path('recipes/<int:pk>/delete/', RecipeDeleteView.as_view(), name='confirm_delete'),
     path('recipes/<int:pk>/archive/', RecipeArchiveView.as_view(), name='confirm_archive'),
+path('recipes/<int:pk>/restore/', RecipeRestoreView.as_view(), name='restore_recipe'),
 
 ]

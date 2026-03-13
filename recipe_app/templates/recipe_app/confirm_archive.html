@@ -1,11 +1,12 @@
 {% extends "recipe_app/base.html" %}
 
 {% block content %}
-  <h2>Архивировать рецепт</h2>
-  <p>Вы уверены, что хотите архивировать рецепт: <strong>{{ recipe.name }}</strong>?</p>
+  <h2>Archive Recipe</h2>
+  <p>Are you sure you want to archive the recipe: <strong>{{ recipe.name }}</strong>?</p>
+
   <form method="post">
     {% csrf_token %}
-    <button type="submit" class="btn btn-warning">Архивировать</button>
-    <a href="{% url 'recipe_app:recipes_list' %}" class="btn btn-secondary">Отмена</a>
+    <button type="submit" class="btn btn-warning">Archive</button>
+    <a href="{% url 'recipe_app:recipes_list' %}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}

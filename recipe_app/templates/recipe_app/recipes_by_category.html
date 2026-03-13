@@ -1,7 +1,9 @@
 {% extends "recipe_app/base.html" %}
 
+{% block title %}Recipes in {{ category.name }}{% endblock %}
+
 {% block content %}
-  <h2>📂 Рецепты в категории: "{{ category.name }}"</h2>
+  <h2>📂 Recipes in category: "{{ category.name }}"</h2>
 
   <div class="row row-cols-1 row-cols-md-2 g-4">
     {% for recipe in recipes %}
@@ -17,13 +19,13 @@
               </a>
             </h5>
             <p class="card-text">{{ recipe.description|truncatechars:120 }}</p>
-            <p class="mb-1"><strong>⏱ Время:</strong> {{ recipe.cooking_time }} мин</p>
-            <p class="mb-1"><strong>📅 Создан:</strong> {{ recipe.created_at|date:"d.m.Y H:i" }}</p>
+            <p class="mb-1"><strong>⏱ Cooking time:</strong> {{ recipe.cooking_time }} min</p>
+            <p class="mb-1"><strong>📅 Created:</strong> {{ recipe.created_at|date:"d.m.Y H:i" }}</p>
           </div>
         </div>
       </div>
     {% empty %}
-      <p>Нет рецептов в этой категории.</p>
+      <p>No recipes in this category.</p>
     {% endfor %}
   </div>
 {% endblock %}
