@@ -202,13 +202,13 @@ Python / Django Developer
 ## Screenshots
 
 ### Home Page
-<img src="media/screens/home.png" width="700">
+<img src="screenshots/home.png" width="500">
 
 ### Recipe Detail
-<img src="media/screens/recipe_detail.png" width="700">
+<img src="screenshots/recipe_detail.png" width="700">
 
 ### Admin Panel
-<img src="media/screens/admin.png" width="700">
+<img src="screenshots/admin.png" width="700">
 
 ---
 Live Demo: https://your-app.onrender.com
