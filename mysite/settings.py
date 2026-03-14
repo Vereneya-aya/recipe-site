@@ -1,148 +1,197 @@
 import os
 import logging.config
 from pathlib import Path
+
 from dotenv import load_dotenv
 from django.urls import reverse_lazy
 import dj_database_url
 
-# Загрузка переменных окружения из .env
+# Load environment variables
 load_dotenv()
 
-# Базовая директория проекта
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Основные настройки
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "your-default-secret")
+
+# --------------------------------------------------
+# Security
+# --------------------------------------------------
+
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "unsafe-secret-key")
+
 DEBUG = os.getenv("DJANGO_DEBUG", "0") == "1"
 
-# Разрешённые хосты
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "0.0.0.0",
-    "recipe-site-production.up.railway.app",
-]
+ALLOWED_HOSTS = os.getenv(
+    "DJANGO_ALLOWED_HOSTS",
+    "127.0.0.1,localhost"
+).split(",")
 
-# Если есть дополнительные хосты из .env
-extra_hosts = os.getenv("DJANGO_ALLOWED_HOSTS")
-if extra_hosts:
-    ALLOWED_HOSTS += [host.strip() for host in extra_hosts.split(",") if host.strip()]
 
-# Установленные приложения
+# --------------------------------------------------
+# Applications
+# --------------------------------------------------
+
 INSTALLED_APPS = [
-    # Django
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
 
-    # Сторонние
-    'rest_framework',
-    'django_filters',
-    'drf_yasg',
+    "rest_framework",
+    "django_filters",
+    "drf_yasg",
 
-    # Собственные
-    'recipe_app',
-    'user_app',
+    "recipe_app",
+    "user_app",
 ]
 
-# Debug toolbar только для локальной разработки
 if DEBUG:
-    INSTALLED_APPS += ['debug_toolbar']
+    INSTALLED_APPS += ["debug_toolbar"]
 
+
+# --------------------------------------------------
 # Middleware
+# --------------------------------------------------
+
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 if DEBUG:
-    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
+    MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 
-# URL-конфигурация
-ROOT_URLCONF = 'mysite.urls'  # Заменить, если твоя папка называется иначе
 
-# Шаблоны
+# --------------------------------------------------
+# URLs / WSGI
+# --------------------------------------------------
+
+ROOT_URLCONF = "mysite.urls"
+
+WSGI_APPLICATION = "mysite.wsgi.application"
+
+
+# --------------------------------------------------
+# Templates
+# --------------------------------------------------
+
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-# WSGI-приложение
-WSGI_APPLICATION = 'mysite.wsgi.application'
 
-# База данных
-if os.getenv("DATABASE_URL"):
+# --------------------------------------------------
+# Database
+# --------------------------------------------------
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+if DATABASE_URL:
     DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600)
+        "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600)
     }
 else:
-    DATABASE_DIR = BASE_DIR / "database"
-    DATABASE_DIR.mkdir(exist_ok=True)
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': DATABASE_DIR / 'db.sqlite3',
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
         }
     }
 
-# Валидаторы паролей
+
+# --------------------------------------------------
+# Password validation
+# --------------------------------------------------
+
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"
+    },
 ]
 
-# Интернационализация
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+
+# --------------------------------------------------
+# Internationalization
+# --------------------------------------------------
+
+LANGUAGE_CODE = "en-us"
+
+TIME_ZONE = "UTC"
+
 USE_I18N = True
 USE_TZ = True
 
-# Статические и медиа-файлы
-STATIC_URL = '/static/'
+
+# --------------------------------------------------
+# Static & Media
+# --------------------------------------------------
+
+STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-MEDIA_URL = '/media/'
+MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-# Настройки логина/логаута
-LOGIN_URL = '/users/login/'
-LOGIN_REDIRECT_URL = reverse_lazy("user_app:profile")
-LOGOUT_REDIRECT_URL = '/users/login/'
 
-# DRF настройки
+# --------------------------------------------------
+# Authentication redirects
+# --------------------------------------------------
+
+LOGIN_URL = "/users/login/"
+LOGIN_REDIRECT_URL = reverse_lazy("user_app:profile")
+LOGOUT_REDIRECT_URL = "/users/login/"
+
+
+# --------------------------------------------------
+# Django REST Framework
+# --------------------------------------------------
+
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
     ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
-    'DEFAULT_FILTER_BACKENDS': [
-        'django_filters.rest_framework.DjangoFilterBackend'
+    "DEFAULT_PAGINATION_CLASS":
+        "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend"
     ],
 }
 
-# Логирование
+
+# --------------------------------------------------
+# Logging
+# --------------------------------------------------
+
 LOGLEVEL = os.getenv("DJANGO_LOGLEVEL", "INFO").upper()
+
 logging.config.dictConfig({
     "version": 1,
     "disable_existing_loggers": False,
@@ -160,19 +209,32 @@ logging.config.dictConfig({
     },
     "loggers": {
         "": {
-            "level": LOGLEVEL,
             "handlers": ["console"],
+            "level": LOGLEVEL,
         },
     },
 })
 
-# Debug toolbar IP
-INTERNAL_IPS = ['127.0.0.1']
 
-# Поле ID по умолчанию
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# --------------------------------------------------
+# Django debug toolbar
+# --------------------------------------------------
 
-# CSRF trusted origins для деплоя
-CSRF_TRUSTED_ORIGINS = [
-    "https://recipe-site-production.up.railway.app",
-]
+INTERNAL_IPS = ["127.0.0.1"]
+
+
+# --------------------------------------------------
+# Default primary key
+# --------------------------------------------------
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# --------------------------------------------------
+# CSRF trusted origins
+# --------------------------------------------------
+
+CSRF_TRUSTED_ORIGINS = os.getenv(
+    "CSRF_TRUSTED_ORIGINS",
+    ""
+).split(",")
