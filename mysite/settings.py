@@ -11,7 +11,6 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # --------------------------------------------------
 # Security
 # --------------------------------------------------
@@ -24,7 +23,6 @@ ALLOWED_HOSTS = os.getenv(
     "DJANGO_ALLOWED_HOSTS",
     "127.0.0.1,localhost"
 ).split(",")
-
 
 # --------------------------------------------------
 # Applications
@@ -49,7 +47,6 @@ INSTALLED_APPS = [
 if DEBUG:
     INSTALLED_APPS += ["debug_toolbar"]
 
-
 # --------------------------------------------------
 # Middleware
 # --------------------------------------------------
@@ -62,11 +59,11 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 if DEBUG:
     MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
-
 
 # --------------------------------------------------
 # URLs / WSGI
@@ -75,7 +72,6 @@ if DEBUG:
 ROOT_URLCONF = "mysite.urls"
 
 WSGI_APPLICATION = "mysite.wsgi.application"
-
 
 # --------------------------------------------------
 # Templates
@@ -97,7 +93,6 @@ TEMPLATES = [
     },
 ]
 
-
 # --------------------------------------------------
 # Database
 # --------------------------------------------------
@@ -115,7 +110,6 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-
 
 # --------------------------------------------------
 # Password validation
@@ -136,7 +130,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # --------------------------------------------------
 # Internationalization
 # --------------------------------------------------
@@ -148,7 +141,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-
 # --------------------------------------------------
 # Static & Media
 # --------------------------------------------------
@@ -159,7 +151,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-
 # --------------------------------------------------
 # Authentication redirects
 # --------------------------------------------------
@@ -167,7 +158,6 @@ MEDIA_ROOT = BASE_DIR / "media"
 LOGIN_URL = "/users/login/"
 LOGIN_REDIRECT_URL = reverse_lazy("user_app:profile")
 LOGOUT_REDIRECT_URL = "/users/login/"
-
 
 # --------------------------------------------------
 # Django REST Framework
@@ -184,7 +174,6 @@ REST_FRAMEWORK = {
         "django_filters.rest_framework.DjangoFilterBackend"
     ],
 }
-
 
 # --------------------------------------------------
 # Logging
@@ -215,13 +204,11 @@ logging.config.dictConfig({
     },
 })
 
-
 # --------------------------------------------------
 # Django debug toolbar
 # --------------------------------------------------
 
 INTERNAL_IPS = ["127.0.0.1"]
-
 
 # --------------------------------------------------
 # Default primary key
@@ -229,12 +216,12 @@ INTERNAL_IPS = ["127.0.0.1"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
 # --------------------------------------------------
 # CSRF trusted origins
 # --------------------------------------------------
 
-CSRF_TRUSTED_ORIGINS = os.getenv(
-    "CSRF_TRUSTED_ORIGINS",
-    ""
-).split(",")
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com",
+]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
