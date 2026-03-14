@@ -211,4 +211,4 @@ Python / Django Developer
 <img src="screenshots/admin.png" width="700">
 
 ---
-Live Demo: [https://your-app.onrender.com](https://recipe-site-wg0s.onrender.com)
+Live Demo: [https://recipe-site-wg0s.onrender.com](https://recipe-site-wg0s.onrender.com)
