@@ -11,6 +11,9 @@
   </component>
   <component name="DBNavigator.Project.DatabaseAssistantManager">
     <assistants>
+      <assistant-state connection-id="b2acf799-24db-470c-84cf-46f77db85f02" default-profile-name="" selected-conversation-id="" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
+        <conversations />
+      </assistant-state>
       <assistant-state connection-id="369eb8b9-1b65-4912-9c14-2570cb0c237c" default-profile-name="" selected-conversation-id="D0B8558B745F460DBF17F582BE2B622A" assistant-type="GENERIC" availability="UNAVAILABLE" acknowledgement="NONE">
         <conversations>
           <conversation id="D0B8558B745F460DBF17F582BE2B622A" title="" session-signature="" timestamp="1773159461250">
@@ -24,12 +27,12 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
+    <show-object-properties value="false" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="369eb8b9-1b65-4912-9c14-2570cb0c237c">
-      <console name="Connection" type="STANDARD" schema="db" session="Main" />
+    <connection id="3c5f3fa2-f8e4-4eaf-b656-d053a5f450f8">
+      <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -39,11 +42,22 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="369eb8b9-1b65-4912-9c14-2570cb0c237c" />
+    <connection id="3c5f3fa2-f8e4-4eaf-b656-d053a5f450f8" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="369eb8b9-1b65-4912-9c14-2570cb0c237c" dataset="db.auth_permission" active-filter-id="" />
     <filter-actions connection-id="369eb8b9-1b65-4912-9c14-2570cb0c237c" dataset="db.auth_user" active-filter-id="" />
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.MethodExecutionManager">
+    <method-browser />
+    <execution-history>
+      <group-entries value="true" />
+      <execution-inputs />
+    </execution-history>
+    <execution-variables-cache />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
@@ -51,7 +65,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection source-id="" id="369eb8b9-1b65-4912-9c14-2570cb0c237c" active="true" signed="true">
+      <connection source-id="" id="3c5f3fa2-f8e4-4eaf-b656-d053a5f450f8" active="true" signed="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -71,7 +85,7 @@
           <protocol value="" />
           <url-parameters />
           <files>
-            <file path="$PROJECT_DIR$/recipe_site/db.sqlite3" schema="db" />
+            <file path="db.sqlite3" schema="db" />
           </files>
           <type value="NONE" />
           <user value="" />
