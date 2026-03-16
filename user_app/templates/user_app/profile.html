@@ -1,19 +1,21 @@
 {% extends "user_app/base.html" %}
 
+{% block title %}Profile{% endblock %}
+
 {% block content %}
-<h2>Профиль пользователя</h2>
-<p>👤 Имя: {{ user.username }}</p>
-<p>📧 Почта: {{ user.email }}</p>
+<h2>User Profile</h2>
+<p>👤 Username: {{ user.username }}</p>
+<p>📧 Email: {{ user.email }}</p>
 
-<!-- Кнопка "Создать рецепт" -->
-<a href="{% url 'recipe_app:create_recipe' %}" class="btn btn-primary mb-3">➕ Создать новый рецепт</a>
+<!-- Create Recipe Button -->
+<a href="{% url 'recipe_app:create_recipe' %}" class="btn btn-primary mb-3">➕ Create New Recipe</a>
 
-<p>📝 Ваши рецепты:</p>
+<h4>📝 Your Recipes:</h4>
 <ul>
     {% for recipe in user.recipes.all %}
-    <li><a href="{% url 'recipe_app:recipe_detail' recipe.pk %}">{{ recipe.name }}</a></li>
+        <li><a href="{% url 'recipe_app:recipe_detail' recipe.pk %}">{{ recipe.name }}</a></li>
     {% empty %}
-    <li>Вы пока не добавили ни одного рецепта.</li>
+        <li>You haven't added any recipes yet.</li>
     {% endfor %}
 </ul>
 {% endblock %}
