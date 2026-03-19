@@ -11,37 +11,24 @@
     <p><strong>⏱ Cooking time:</strong> {{ recipe.cooking_time }} minutes</p>
 
     {% if recipe.image %}
-    <img src="{{ recipe.image.url }}" class="img-fluid mt-3 mb-3" alt="{{ recipe.name }}"
+    <img src="{{ recipe.image }}" class="img-fluid mt-3 mb-3" alt="{{ recipe.name }}"
          style="max-height: 400px; object-fit: cover; object-position: center; width: 100%;">
     {% endif %}
 
     <div class="mt-4 d-flex gap-2 flex-wrap">
-
         {% if recipe.author == user %}
-
-        {% if recipe.archived %}
-
-        <form method="post" action="{% url 'recipe_app:restore_recipe' recipe.pk %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-success">Restore</button>
-        </form>
-
-        {% else %}
-
-        <a href="{% url 'recipe_app:update_recipe' recipe.pk %}" class="btn btn-warning">Edit</a>
-
-        <a href="{% url 'recipe_app:confirm_archive' recipe.pk %}" class="btn btn-secondary">
-            Archive
-        </a>
-
+            {% if recipe.archived %}
+            <form method="post" action="{% url 'recipe_app:restore_recipe' recipe.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Restore</button>
+            </form>
+            {% else %}
+            <a href="{% url 'recipe_app:update_recipe' recipe.pk %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'recipe_app:confirm_archive' recipe.pk %}" class="btn btn-secondary">Archive</a>
+            {% endif %}
+            <a href="{% url 'recipe_app:confirm_delete' recipe.pk %}" class="btn btn-danger">Delete</a>
         {% endif %}
-
-        <a href="{% url 'recipe_app:confirm_delete' recipe.pk %}" class="btn btn-danger">Delete</a>
-
-        {% endif %}
-
         <a href="{% url 'recipe_app:recipes_list' %}" class="btn btn-outline-primary">Back to list</a>
-
     </div>
 </div>
 {% endblock %}

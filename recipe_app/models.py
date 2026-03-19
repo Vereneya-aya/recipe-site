@@ -13,10 +13,10 @@ class Recipe(models.Model):
     name = models.CharField(max_length=100)
     categories = models.ManyToManyField(Category, related_name='recipes', blank=True)
     description = models.TextField()
-    ingredients = models.TextField(blank=True)  # Новый блок
-    instructions = models.TextField(blank=True)  # Новый блок
-    cooking_time = models.IntegerField()  # в минутах
-    image = models.ImageField(upload_to="recipes/", default="default.png")
+    ingredients = models.TextField(blank=True)
+    instructions = models.TextField(blank=True)
+    cooking_time = models.IntegerField()
+    image = models.URLField(blank=True, null=True)
     archived = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -43,7 +43,7 @@ class Like(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'recipe')  # запретить повторный лайк
+        unique_together = ('user', 'recipe')
 
     def __str__(self):
         return f'{self.user.username} ❤️ {self.recipe.name}'
